@@ -211,6 +211,13 @@
     text-transform: uppercase;
   }
   .article .meta .src { color: var(--text); }
+  /* 翻訳時に下へ小さく出す原題 */
+  .article .orig {
+    margin: -2px 0 8px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    line-height: 1.45;
+  }
 
   /* ====== 読み込み中・空表示 ====== */
   .loading, .empty {
@@ -231,7 +238,16 @@
   }
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* ====== サイト共通ナビゲーション ====== */
+  footer {
+    color: var(--muted);
+    font-size: 0.64rem;
+    line-height: 1.8;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ====== サイト共通ナビ ====== */
   .site-nav {
     width: min(960px, calc(100% - 24px));
     margin: 24px auto 0;
@@ -253,25 +269,14 @@
     text-transform: uppercase;
     border-right: 1px solid var(--line);
     transition: background 160ms ease;
+    white-space: nowrap;
   }
   .site-nav-link:last-child { border-right: 0; }
   .site-nav-link:hover { background: var(--panel-soft); }
   .site-nav-link.active { background: var(--accent); color: #fff; }
   body.has-nav .app-shell { margin-top: 0; }
   @media (max-width: 620px) {
-    .site-nav {
-      width: min(100% - 16px, 1180px);
-      margin: 8px auto 0;
-    }
-  }
-
-  footer {
-    color: var(--muted);
-    font-size: 0.64rem;
-    line-height: 1.8;
-    margin-top: 20px;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
+    .site-nav { width: min(100% - 16px, 1180px); margin: 8px auto 0; }
   }
 
   /* ====== スマホ対応 ====== */
@@ -304,7 +309,7 @@
       <p class="brand-mark">Bar Soutsu</p>
       <p class="eyebrow">Gin News Feed / World &amp; Japan</p>
       <h1>ジン最新ニュース</h1>
-      <p class="lead">世界中・日本中のジン情報を自動で収集してお届けします。新商品、クラフトジン、バー・業界トレンド、受賞情報をまとめて確認できます。</p>
+      <p class="lead">世界中・日本中のジン情報を自動で収集してお届けします。海外記事は日本語タイトルに翻訳済み。新商品、クラフトジン、バー・業界トレンド、受賞情報をまとめて確認できます。</p>
     </div>
     <div class="hero-panel" aria-label="取得状況">
       <span>記事件数</span>
@@ -326,211 +331,116 @@
   <div class="feed" id="feed"></div>
 
   <footer>
-    情報源：Googleニュース（世界中のニュースサイトを自動集約）<br>
-    記事タイトルをクリックすると、発信元サイトが開きます。
+    情報源：Googleニュース（世界中のニュースサイトを自動集約）／海外記事はGoogle翻訳で日本語化<br>
+    ニュースは約3時間ごとに自動更新されます。記事タイトルをクリックすると発信元サイトが開きます。
   </footer>
 
 </main>
 
 <script>
 /* =========================================================
-   ■ カテゴリの設定
-   各カテゴリごとに「Googleニュースで何を検索するか」を決めています。
-   検索ワードを変えれば、読みたいニュースを自由に調整できます。
-   q   : 検索キーワード
-   lang: 言語と地域（ja=日本語/日本、en=英語/アメリカ）
+   ■ カテゴリの定義（表示順とタブ名）
+   実際のニュースデータは news.json にあらかじめ用意されており、
+   このページはそれを読み込んで表示するだけです（中継サービス不要）。
+   ニュースの取得・英語タイトルの翻訳は、GitHubの自動機能が
+   約3時間ごとにサーバー側で行っています（build_news.py）。
    ========================================================= */
 const CATEGORIES = [
-  {
-    id: "all",
-    name: "すべて",
-    // 「すべて」は下の各カテゴリを全部まとめて表示します
-  },
-  {
-    id: "world",
-    name: "海外の新商品",
-    feeds: [
-      { q: "gin distillery new release", lang: "en" },
-      { q: "new gin launch brand",       lang: "en" },
-    ],
-  },
-  {
-    id: "japan",
-    name: "日本のクラフトジン",
-    feeds: [
-      { q: "クラフトジン",            lang: "ja" },
-      { q: "ジン 蒸留所 新発売",      lang: "ja" },
-    ],
-  },
-  {
-    id: "trend",
-    name: "バー・業界トレンド",
-    feeds: [
-      { q: "gin cocktail bar trend",  lang: "en" },
-      { q: "ジン カクテル バー",       lang: "ja" },
-    ],
-  },
-  {
-    id: "award",
-    name: "受賞・コンペ",
-    feeds: [
-      { q: "gin awards winner",            lang: "en" },
-      { q: "World Gin Awards",             lang: "en" },
-    ],
-  },
+  { id: "all",   name: "すべて" },
+  { id: "world", name: "海外の新商品" },
+  { id: "japan", name: "日本のクラフトジン" },
+  { id: "trend", name: "バー・業界トレンド" },
+  { id: "award", name: "受賞・コンペ" },
 ];
 
-/* =========================================================
-   ■ ニュースの取得処理
-   GoogleニュースのRSS（ニュース配信データ）を読み込みます。
-   そのままだとブラウザの制限で読めないため、
-   間に「中継サービス」を挟んでデータを取得します。
-   うまくいかない時のために中継サービスを2つ用意し、
-   順番に試します。
-   ========================================================= */
+let newsData = null;        // 読み込んだ news.json をまるごと保持
+let currentCategory = "all";
 
-// 中継サービス（プロキシ）の一覧。前から順に試します。
-const PROXIES = [
-  (url) => "https://api.allorigins.win/raw?url=" + encodeURIComponent(url),
-  (url) => "https://corsproxy.io/?url=" + encodeURIComponent(url),
-];
-
-// GoogleニュースのRSSのURLを組み立てる
-function buildGoogleNewsUrl(q, lang) {
-  const base = "https://news.google.com/rss/search?q=" + encodeURIComponent(q);
-  if (lang === "ja") {
-    return base + "&hl=ja&gl=JP&ceid=JP:ja";
-  }
-  return base + "&hl=en-US&gl=US&ceid=US:en";
-}
-
-// 1つのRSSを取得して、記事の配列に変換する
-async function fetchFeed(feed, categoryName) {
-  const rssUrl = buildGoogleNewsUrl(feed.q, feed.lang);
-
-  // 中継サービスを順番に試す
-  for (const proxy of PROXIES) {
-    try {
-      const res = await fetch(proxy(rssUrl), { cache: "no-store" });
-      if (!res.ok) continue;
-      const text = await res.text();
-      const items = parseRss(text, categoryName);
-      if (items.length > 0) return items;
-    } catch (e) {
-      // この中継がダメだったら次を試す
-    }
-  }
-  return []; // 全部ダメだった場合は空
-}
-
-// RSS（XML形式の文字データ）を読み取って記事リストにする
-function parseRss(xmlText, categoryName) {
-  const doc = new DOMParser().parseFromString(xmlText, "text/xml");
-  const items = [...doc.querySelectorAll("item")];
-  return items.map((item) => {
-    const title = item.querySelector("title")?.textContent || "(タイトルなし)";
-    const link  = item.querySelector("link")?.textContent || "#";
-    const pubDate = item.querySelector("pubDate")?.textContent || "";
-    // Googleニュースは「タイトル - 発信元」の形式なので発信元を分離
-    let cleanTitle = title;
-    let source = item.querySelector("source")?.textContent || "";
-    const dashIndex = title.lastIndexOf(" - ");
-    if (!source && dashIndex > 0) {
-      cleanTitle = title.slice(0, dashIndex);
-      source = title.slice(dashIndex + 3);
-    }
-    return {
-      title: cleanTitle,
-      link,
-      source,
-      date: pubDate ? new Date(pubDate) : null,
-      category: categoryName,
-    };
-  });
-}
-
-/* =========================================================
-   ■ 画面に表示する処理
-   ========================================================= */
 const feedEl = document.getElementById("feed");
 const statusEl = document.getElementById("status");
 const countNumEl = document.getElementById("countNum");
 const updatedAtEl = document.getElementById("updatedAt");
-let currentCategory = "all";
-let cache = {}; // 一度取得したニュースを覚えておく入れ物
 
-// 指定したカテゴリのニュースを取得して表示
-async function loadCategory(catId, forceReload = false) {
-  currentCategory = catId;
-
-  // 「すべて」の場合は、世界・日本・トレンド・受賞を全部対象にする
-  const targets = catId === "all"
-    ? CATEGORIES.filter((c) => c.feeds)
-    : CATEGORIES.filter((c) => c.id === catId);
-
-  // すでに取得済みで再取得不要ならそれを表示
-  if (!forceReload && cache[catId]) {
-    render(cache[catId]);
-    return;
-  }
-
-  // 読み込み中の表示
-  feedEl.innerHTML = '<div class="loading"><div class="spinner"></div>世界中からニュースを集めています…</div>';
-  statusEl.textContent = "取得中…";
+/* =========================================================
+   ■ データの読み込み
+   ========================================================= */
+async function loadData() {
+  feedEl.innerHTML = '<div class="loading"><div class="spinner"></div>ニュースを読み込んでいます…</div>';
+  statusEl.textContent = "読み込み中…";
   countNumEl.textContent = "—";
   updatedAtEl.textContent = "読み込み中";
 
-  // 各カテゴリ・各検索ワードのRSSをまとめて取得
-  const allFeeds = [];
-  targets.forEach((cat) => {
-    cat.feeds.forEach((f) => allFeeds.push(fetchFeed(f, cat.name)));
-  });
-
-  let results = [];
   try {
-    const lists = await Promise.all(allFeeds);
-    results = lists.flat();
+    // キャッシュ回避のため時刻を付けて毎回最新の news.json を取得
+    const res = await fetch("news.json?t=" + Date.now(), { cache: "no-store" });
+    if (!res.ok) throw new Error("読み込み失敗");
+    newsData = await res.json();
   } catch (e) {
-    results = [];
-  }
-
-  // 重複記事（同じタイトル）をまとめる
-  const seen = new Set();
-  results = results.filter((a) => {
-    const key = a.title.trim();
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-
-  // 新しい順に並べ替え
-  results.sort((a, b) => {
-    if (!a.date) return 1;
-    if (!b.date) return -1;
-    return b.date - a.date;
-  });
-
-  cache[catId] = results;
-  render(results);
-}
-
-// 記事リストを実際に画面へ描き出す
-function render(articles) {
-  if (!articles || articles.length === 0) {
-    feedEl.innerHTML = '<div class="empty">ニュースを取得できませんでした。<br>少し時間をおいて「↻ 最新に更新」を押してみてください。</div>';
+    newsData = null;
+    feedEl.innerHTML = '<div class="empty">ニュースデータを読み込めませんでした。<br>少し時間をおいて「↻ 最新に更新」を押してみてください。</div>';
     statusEl.textContent = "";
     countNumEl.textContent = "0";
-    updatedAtEl.textContent = "取得失敗";
+    updatedAtEl.textContent = "読み込み失敗";
+    return;
+  }
+  showCategory(currentCategory);
+}
+
+/* =========================================================
+   ■ カテゴリごとの記事リストを作る
+   ========================================================= */
+function articlesFor(catId) {
+  if (!newsData || !newsData.categories) return [];
+  if (catId !== "all") {
+    return (newsData.categories[catId] || []).slice();
+  }
+  // 「すべて」= 全カテゴリを結合し、タイトルで重複を除去して新しい順に
+  const merged = [];
+  const seen = new Set();
+  Object.keys(newsData.categories).forEach((cid) => {
+    newsData.categories[cid].forEach((a) => {
+      const key = (a.title || "").trim();
+      if (seen.has(key)) return;
+      seen.add(key);
+      merged.push(Object.assign({ _cat: cid }, a));
+    });
+  });
+  merged.sort((x, y) => (y.date || "").localeCompare(x.date || ""));
+  return merged;
+}
+
+// カテゴリIDから表示名を引く
+function catName(catId) {
+  const c = CATEGORIES.find((c) => c.id === catId);
+  return c ? c.name : "";
+}
+
+/* =========================================================
+   ■ 画面に表示する
+   ========================================================= */
+function showCategory(catId) {
+  currentCategory = catId;
+  const articles = articlesFor(catId);
+  render(articles);
+}
+
+function render(articles) {
+  if (!articles || articles.length === 0) {
+    feedEl.innerHTML = '<div class="empty">このカテゴリのニュースはまだありません。</div>';
+    statusEl.textContent = "";
+    countNumEl.textContent = "0";
     return;
   }
 
+  const showCat = currentCategory === "all"; // 「すべて」表示の時だけカテゴリ名を出す
   feedEl.innerHTML = articles.map((a) => {
     const dateStr = a.date ? formatDate(a.date) : "";
-    const showCat = currentCategory === "all"; // 「すべて」表示の時だけカテゴリ名を出す
+    const cat = a._cat || currentCategory;
     return `
       <a class="article" href="${escapeHtml(a.link)}" target="_blank" rel="noopener">
-        ${showCat ? `<span class="cat">${escapeHtml(a.category)}</span>` : ""}
+        ${showCat ? `<span class="cat">${escapeHtml(catName(cat))}</span>` : ""}
         <h3>${escapeHtml(a.title)}</h3>
+        ${a.originalTitle ? `<div class="orig">原題: ${escapeHtml(a.originalTitle)}</div>` : ""}
         <div class="meta">
           <span class="src">${escapeHtml(a.source || "ニュース")}</span>${dateStr ? " ・ " + dateStr : ""}
         </div>
@@ -539,19 +449,23 @@ function render(articles) {
 
   statusEl.textContent = "新しい順に表示中";
   countNumEl.textContent = articles.length;
-  updatedAtEl.textContent = "更新 " + formatDate(new Date());
+  // 更新時刻は news.json の updated を表示
+  if (newsData && newsData.updated) {
+    updatedAtEl.textContent = "更新 " + formatDate(newsData.updated);
+  }
 }
 
-// 日付を見やすい形にする
-function formatDate(d) {
+// 日付（ISO文字列）を見やすい形にする
+function formatDate(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return "";
   const now = new Date();
   const diffMin = Math.floor((now - d) / 60000);
-  if (diffMin < 60) return diffMin <= 1 ? "たった今" : `${diffMin}分前`;
+  if (diffMin < 1) return "たった今";
+  if (diffMin < 60) return `${diffMin}分前`;
   const diffHour = Math.floor(diffMin / 60);
   if (diffHour < 24) return `${diffHour}時間前`;
-  const m = d.getMonth() + 1;
-  const day = d.getDate();
-  return `${m}月${day}日`;
+  return `${d.getMonth() + 1}月${d.getDate()}日`;
 }
 
 // 安全のため、文字列をそのまま表示できる形に変換
@@ -572,18 +486,16 @@ CATEGORIES.forEach((cat, i) => {
   btn.onclick = () => {
     document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
     btn.classList.add("active");
-    loadCategory(cat.id);
+    showCategory(cat.id);
   };
   tabsEl.appendChild(btn);
 });
 
-// 「最新に更新」ボタン
-document.getElementById("reloadBtn").onclick = () => {
-  loadCategory(currentCategory, true);
-};
+// 「最新に更新」ボタン（news.jsonを取り直す）
+document.getElementById("reloadBtn").onclick = () => loadData();
 
-// ページを開いたら最初に「すべて」を読み込む
-loadCategory("all");
+// 最初の読み込み
+loadData();
 </script>
 </body>
 </html>
