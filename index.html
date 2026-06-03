@@ -258,8 +258,13 @@
     border: 1px solid var(--line-strong);
     border-bottom: 0;
     background: var(--panel);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .site-nav::-webkit-scrollbar { display: none; }
   .site-nav-link {
+    white-space: nowrap;
     padding: 0 18px;
     min-height: 38px;
     display: grid;
@@ -301,6 +306,8 @@
   <a class="site-nav-link" href="https://sousuyou.github.io/cocktail-cost-tool/">原価計算</a>
   <a class="site-nav-link" href="https://sousuyou.github.io/cocktail-recipe-book/">レシピ帳</a>
   <a class="site-nav-link" href="https://sousuyou.github.io/gin-textbook/">ジン教本</a>
+  <a class="site-nav-link" href="https://sousuyou.github.io/gin-textbook/quiz/">クイズ道場</a>
+  <a class="site-nav-link" href="https://sousuyou.github.io/gin-textbook/cheatsheet/">チートシート</a>
   <a class="site-nav-link active" href="https://sousuyou.github.io/gin-news/">ジンニュース</a>
 </nav>
 
