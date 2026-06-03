@@ -3,134 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>世界のジン最新ニュース</title>
+<meta name="theme-color" content="#f3f1ec">
+<title>Bar Soutsu ジン最新ニュース</title>
 <style>
-  /* ====== 全体のデザイン設定 ====== */
+  /* ====== お手本（カクテル原価計算ツール）と同じデザイントークン ====== */
   :root {
-    --bg: #0f1419;        /* 背景色（濃い紺） */
-    --card: #1a2129;      /* カードの色 */
-    --accent: #6ab7a8;    /* アクセント色（ジンらしい青緑＝ボタニカルなイメージ） */
-    --text: #e8eaed;      /* 文字色 */
-    --sub: #9aa4af;       /* 補助文字色 */
-    --border: #2a323c;    /* 枠線の色 */
+    color-scheme: light;
+    --bg: #e9e9e5;          /* 背景：生成り色 */
+    --paper: #fbfaf6;       /* 紙のパネル */
+    --panel: #fbfaf6;
+    --panel-soft: #f3f2ee;  /* やや沈んだパネル */
+    --field: #ffffff;
+    --line: #c9c8c2;        /* 細い罫線 */
+    --line-strong: #242424; /* 強い黒の罫線 */
+    --text: #161616;        /* 本文の黒 */
+    --muted: #6f6d67;       /* 補助グレー */
+    --accent: #161616;      /* アクセント＝黒 */
+    --red: #a72821;         /* 強調の赤 */
+    --shadow: 0 18px 42px rgba(30, 30, 27, 0.08);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * { box-sizing: border-box; }
   body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                 "Hiragino Sans", "Yu Gothic", sans-serif;
     background: var(--bg);
     color: var(--text);
-    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-    line-height: 1.6;
-    padding: 0 0 60px;
+    font-size: 13px;
+  }
+  button { font: inherit; }
+
+  /* ====== 外枠（紙の額縁） ====== */
+  .app-shell {
+    width: min(960px, calc(100% - 24px));
+    min-height: calc(100vh - 48px);
+    margin: 24px auto;
+    padding: 28px;
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+    box-shadow: var(--shadow);
   }
 
-  /* ====== ヘッダー ====== */
-  header {
-    background: linear-gradient(135deg, #16323a, #0f1419);
-    padding: 28px 20px 22px;
-    border-bottom: 1px solid var(--border);
-    text-align: center;
+  /* ====== 見出しエリア ====== */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 18px;
+    align-items: stretch;
+    padding: 0 0 18px;
+    border-bottom: 2px solid var(--line-strong);
   }
-  header h1 { font-size: 1.6rem; letter-spacing: 0.04em; }
-  header h1 .leaf { color: var(--accent); }
-  header p.sub { color: var(--sub); font-size: 0.85rem; margin-top: 6px; }
+  .brand-mark {
+    margin: 0 0 8px;
+    font-size: clamp(1.05rem, 2.5vw, 1.5rem);
+    line-height: 1;
+    font-weight: 700;
+  }
+  .eyebrow {
+    margin: 0 0 8px;
+    color: var(--muted);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(1.05rem, 2.5vw, 1.55rem);
+    line-height: 1.18;
+    font-weight: 700;
+  }
+  .lead {
+    max-width: 620px;
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.65;
+  }
+  /* 見出し右の状態パネル（件数・更新時刻） */
+  .hero-panel {
+    padding: 14px;
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    display: grid;
+    align-content: center;
+  }
+  .hero-panel span,
+  .hero-panel small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .hero-panel strong {
+    display: block;
+    margin: 6px 0 2px;
+    color: var(--red);
+    font-size: 1.65rem;
+    font-weight: 700;
+  }
 
-  /* ====== カテゴリ切り替えタブ ====== */
+  /* ====== カテゴリ切り替え（タブ） ====== */
   .tabs {
+    margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-    padding: 18px 14px 6px;
-    position: sticky;
-    top: 0;
-    background: var(--bg);
-    z-index: 10;
-    border-bottom: 1px solid var(--border);
+    gap: 0;
+    border: 1px solid var(--line-strong);
+    background: var(--panel);
   }
   .tab {
-    background: var(--card);
+    flex: 1 1 auto;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 0;
+    border-right: 1px solid var(--line);
+    background: var(--panel);
     color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 8px 16px;
-    font-size: 0.85rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     cursor: pointer;
-    transition: 0.15s;
+    transition: background 160ms ease, color 160ms ease;
     white-space: nowrap;
   }
-  .tab:hover { border-color: var(--accent); }
+  .tab:last-child { border-right: 0; }
+  .tab:hover { background: var(--panel-soft); }
   .tab.active {
     background: var(--accent);
-    color: #0f1419;
-    font-weight: bold;
-    border-color: var(--accent);
+    color: #ffffff;
   }
 
-  /* ====== 更新ボタンと状態表示 ====== */
+  /* ====== 操作バー（更新ボタン・状態） ====== */
   .toolbar {
-    max-width: 820px;
-    margin: 14px auto 0;
-    padding: 0 16px;
+    margin-top: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .status { color: var(--sub); font-size: 0.8rem; }
+  .status {
+    color: var(--muted);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
   .reload-btn {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 8px;
-    padding: 6px 14px;
-    font-size: 0.8rem;
+    min-height: 36px;
+    padding: 0 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 0;
+    background: var(--panel);
+    color: var(--text);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: transform 160ms ease, background 160ms ease;
   }
-  .reload-btn:hover { background: rgba(106,183,168,0.12); }
+  .reload-btn:hover { transform: translateY(-1px); background: var(--panel-soft); }
 
   /* ====== ニュース一覧 ====== */
   .feed {
-    max-width: 820px;
-    margin: 16px auto 0;
-    padding: 0 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    margin-top: 16px;
+    display: grid;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-bottom: 0;
   }
   .article {
     display: block;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
     padding: 16px 18px;
     text-decoration: none;
     color: inherit;
-    transition: 0.15s;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
+    transition: background 160ms ease;
   }
-  .article:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .article:hover { background: var(--panel-soft); }
   .article .cat {
     display: inline-block;
-    font-size: 0.7rem;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    border-radius: 6px;
-    padding: 1px 8px;
     margin-bottom: 8px;
+    color: var(--red);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
-  .article h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-  .article .meta { font-size: 0.76rem; color: var(--sub); }
-  .article .meta .src { color: #c0c8d0; }
+  .article h3 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .article .meta {
+    font-size: 0.66rem;
+    color: var(--muted);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .article .meta .src { color: var(--text); }
 
-  /* ====== 読み込み中・エラー表示 ====== */
+  /* ====== 読み込み中・空表示 ====== */
   .loading, .empty {
     text-align: center;
-    color: var(--sub);
+    color: var(--muted);
     padding: 50px 20px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    background: var(--panel);
+    border-bottom: 1px solid var(--line);
   }
   .spinner {
-    width: 28px; height: 28px;
-    border: 3px solid var(--border);
+    width: 26px; height: 26px;
+    border: 2px solid var(--line);
     border-top-color: var(--accent);
     border-radius: 50%;
     margin: 0 auto 14px;
@@ -139,38 +232,64 @@
   @keyframes spin { to { transform: rotate(360deg); } }
 
   footer {
-    text-align: center;
-    color: var(--sub);
-    font-size: 0.72rem;
-    margin-top: 40px;
-    padding: 0 20px;
+    color: var(--muted);
+    font-size: 0.64rem;
     line-height: 1.8;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ====== スマホ対応 ====== */
+  @media (max-width: 620px) {
+    .app-shell {
+      width: min(100% - 16px, 1180px);
+      margin: 8px auto;
+      padding: 14px;
+    }
+    .hero { grid-template-columns: 1fr; }
+    .tabs { flex-wrap: wrap; }
+    .tab { flex: 1 1 40%; border-bottom: 1px solid var(--line); }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <h1><span class="leaf">🌿</span> 世界のジン最新ニュース</h1>
-  <p class="sub">世界中・日本中のジン情報を自動収集してお届けします</p>
-</header>
+<main class="app-shell">
 
-<!-- カテゴリ切り替えタブ -->
-<nav class="tabs" id="tabs"></nav>
+  <!-- 見出し -->
+  <section class="hero">
+    <div>
+      <p class="brand-mark">Bar Soutsu</p>
+      <p class="eyebrow">Gin News Feed / World &amp; Japan</p>
+      <h1>ジン最新ニュース</h1>
+      <p class="lead">世界中・日本中のジン情報を自動で収集してお届けします。新商品、クラフトジン、バー・業界トレンド、受賞情報をまとめて確認できます。</p>
+    </div>
+    <div class="hero-panel" aria-label="取得状況">
+      <span>記事件数</span>
+      <strong id="countNum">—</strong>
+      <small id="updatedAt">読み込み中</small>
+    </div>
+  </section>
 
-<!-- 更新ボタンと状態 -->
-<div class="toolbar">
-  <span class="status" id="status"></span>
-  <button class="reload-btn" id="reloadBtn">↻ 最新に更新</button>
-</div>
+  <!-- カテゴリ切り替えタブ -->
+  <nav class="tabs" id="tabs"></nav>
 
-<!-- ニュース一覧の表示場所 -->
-<main class="feed" id="feed"></main>
+  <!-- 操作バー -->
+  <div class="toolbar">
+    <span class="status" id="status"></span>
+    <button class="reload-btn" id="reloadBtn">↻ 最新に更新</button>
+  </div>
 
-<footer>
-  情報源：Googleニュース（世界中のニュースサイトを自動集約）<br>
-  ※ニュースは各記事の発信元サイトに移動して表示されます。記事タイトルをクリックしてください。
-</footer>
+  <!-- ニュース一覧 -->
+  <div class="feed" id="feed"></div>
+
+  <footer>
+    情報源：Googleニュース（世界中のニュースサイトを自動集約）<br>
+    記事タイトルをクリックすると、発信元サイトが開きます。
+  </footer>
+
+</main>
 
 <script>
 /* =========================================================
@@ -188,7 +307,7 @@ const CATEGORIES = [
   },
   {
     id: "world",
-    name: "🌍 海外の新商品・ブランド",
+    name: "海外の新商品",
     feeds: [
       { q: "gin distillery new release", lang: "en" },
       { q: "new gin launch brand",       lang: "en" },
@@ -196,7 +315,7 @@ const CATEGORIES = [
   },
   {
     id: "japan",
-    name: "🇯🇵 日本のクラフトジン",
+    name: "日本のクラフトジン",
     feeds: [
       { q: "クラフトジン",            lang: "ja" },
       { q: "ジン 蒸留所 新発売",      lang: "ja" },
@@ -204,7 +323,7 @@ const CATEGORIES = [
   },
   {
     id: "trend",
-    name: "🍸 バー・業界トレンド",
+    name: "バー・業界トレンド",
     feeds: [
       { q: "gin cocktail bar trend",  lang: "en" },
       { q: "ジン カクテル バー",       lang: "ja" },
@@ -212,7 +331,7 @@ const CATEGORIES = [
   },
   {
     id: "award",
-    name: "🏆 受賞・コンペ",
+    name: "受賞・コンペ",
     feeds: [
       { q: "gin awards winner",            lang: "en" },
       { q: "World Gin Awards",             lang: "en" },
@@ -294,6 +413,8 @@ function parseRss(xmlText, categoryName) {
    ========================================================= */
 const feedEl = document.getElementById("feed");
 const statusEl = document.getElementById("status");
+const countNumEl = document.getElementById("countNum");
+const updatedAtEl = document.getElementById("updatedAt");
 let currentCategory = "all";
 let cache = {}; // 一度取得したニュースを覚えておく入れ物
 
@@ -315,6 +436,8 @@ async function loadCategory(catId, forceReload = false) {
   // 読み込み中の表示
   feedEl.innerHTML = '<div class="loading"><div class="spinner"></div>世界中からニュースを集めています…</div>';
   statusEl.textContent = "取得中…";
+  countNumEl.textContent = "—";
+  updatedAtEl.textContent = "読み込み中";
 
   // 各カテゴリ・各検索ワードのRSSをまとめて取得
   const allFeeds = [];
@@ -355,6 +478,8 @@ function render(articles) {
   if (!articles || articles.length === 0) {
     feedEl.innerHTML = '<div class="empty">ニュースを取得できませんでした。<br>少し時間をおいて「↻ 最新に更新」を押してみてください。</div>';
     statusEl.textContent = "";
+    countNumEl.textContent = "0";
+    updatedAtEl.textContent = "取得失敗";
     return;
   }
 
@@ -363,19 +488,20 @@ function render(articles) {
     const showCat = currentCategory === "all"; // 「すべて」表示の時だけカテゴリ名を出す
     return `
       <a class="article" href="${escapeHtml(a.link)}" target="_blank" rel="noopener">
-        ${showCat ? `<span class="cat">${escapeHtml(a.category)}</span><br>` : ""}
+        ${showCat ? `<span class="cat">${escapeHtml(a.category)}</span>` : ""}
         <h3>${escapeHtml(a.title)}</h3>
         <div class="meta">
-          <span class="src">${escapeHtml(a.source || "ニュース")}</span>
-          ${dateStr ? " ・ " + dateStr : ""}
+          <span class="src">${escapeHtml(a.source || "ニュース")}</span>${dateStr ? " ・ " + dateStr : ""}
         </div>
       </a>`;
   }).join("");
 
-  statusEl.textContent = `${articles.length}件のニュース（更新: ${formatDate(new Date())}）`;
+  statusEl.textContent = "新しい順に表示中";
+  countNumEl.textContent = articles.length;
+  updatedAtEl.textContent = "更新 " + formatDate(new Date());
 }
 
-// 日付を「○月○日 ○○:○○」の見やすい形にする
+// 日付を見やすい形にする
 function formatDate(d) {
   const now = new Date();
   const diffMin = Math.floor((now - d) / 60000);
