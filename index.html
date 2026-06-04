@@ -21,6 +21,11 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://sousuyou.github.io/gin-news/assets/og-image.png">
+
+<!-- アプリ化（ホーム画面に追加・オフライン対応） -->
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icon.svg">
 <style>
   /* ====== お手本（カクテル原価計算ツール）と同じデザイントークン ====== */
   :root {
@@ -536,6 +541,14 @@ document.getElementById("reloadBtn").onclick = () => loadData();
 
 // 最初の読み込み
 loadData();
+</script>
+<!-- アプリ化（ホーム画面に追加・オフライン対応） -->
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.register("service-worker.js");
+    });
+  }
 </script>
 </body>
 </html>

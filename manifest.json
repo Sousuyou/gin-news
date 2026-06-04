@@ -1,0 +1,18 @@
+{
+  "name": "Bar Soutsu ジン最新ニュース",
+  "short_name": "ジンニュース",
+  "description": "Bar Soutsuがまとめるジンまわりの最新ニュース。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#15120f",
+  "theme_color": "#15120f",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
