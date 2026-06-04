@@ -3,15 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f3f1ec">
+<meta name="theme-color" content="#f3f1ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14130f" media="(prefers-color-scheme: dark)">
 <!-- 検索エンジンお断り（検索結果に表示させない設定） -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="googlebot" content="noindex, nofollow">
 <title>Bar Soutsu ジン最新ニュース</title>
+
+<!-- SNS・チャットでURLを共有したときの見栄え（OGP / Twitter Card） -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Bar Soutsu">
+<meta property="og:title" content="ジン最新ニュース｜Bar Soutsu">
+<meta property="og:description" content="新作ボトルや業界トピックなど、ジンまわりの最新ニュースをまとめてチェック。">
+<meta property="og:url" content="https://sousuyou.github.io/gin-news/">
+<meta property="og:image" content="https://sousuyou.github.io/gin-news/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://sousuyou.github.io/gin-news/assets/og-image.png">
 <style>
   /* ====== お手本（カクテル原価計算ツール）と同じデザイントークン ====== */
   :root {
-    color-scheme: light;
+    color-scheme: light dark;
     --bg: #e9e9e5;          /* 背景：生成り色 */
     --paper: #fbfaf6;       /* 紙のパネル */
     --panel: #fbfaf6;
@@ -22,8 +35,28 @@
     --text: #161616;        /* 本文の黒 */
     --muted: #6f6d67;       /* 補助グレー */
     --accent: #161616;      /* アクセント＝黒 */
+    --on-accent: #ffffff;   /* accent色の上に乗せる文字色 */
     --red: #a72821;         /* 強調の赤 */
     --shadow: 0 18px 42px rgba(30, 30, 27, 0.08);
+  }
+
+  /* ===== ダークモード（端末設定に自動追従） ===== */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14130f;
+      --paper: #1c1b16;
+      --panel: #1c1b16;
+      --panel-soft: #242219;
+      --field: #211f19;
+      --line: #3a382f;
+      --line-strong: #6f6c5f;
+      --text: #ece9df;
+      --muted: #a09c8e;
+      --accent: #ece9df;
+      --on-accent: #14130f;
+      --red: #d8736c;
+      --shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+    }
   }
   * { box-sizing: border-box; }
   body {
@@ -137,7 +170,7 @@
   .tab:hover { background: var(--panel-soft); }
   .tab.active {
     background: var(--accent);
-    color: #ffffff;
+    color: var(--on-accent);
   }
 
   /* ====== 操作バー（更新ボタン・状態） ====== */
@@ -281,7 +314,7 @@
   }
   .site-nav-link:last-child { border-right: 0; }
   .site-nav-link:hover { background: var(--panel-soft); }
-  .site-nav-link.active { background: var(--accent); color: #fff; }
+  .site-nav-link.active { background: var(--accent); color: var(--on-accent); }
   body.has-nav .app-shell { margin-top: 0; }
   @media (max-width: 620px) {
     .site-nav { width: min(100% - 16px, 1180px); margin: 8px auto 0; }
