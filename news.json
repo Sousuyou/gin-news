@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-06T04:09:12.263681+00:00",
+ "updated": "2026-06-06T08:43:22.021765+00:00",
  "categories": {
   "world": [
    {
@@ -57,13 +57,6 @@
     "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNcDZfRjRHbEVkbVM4MnlBRTQxREpmaEJRUU1NZmxHemljXzdVV0U2cW9vMmRfYzV1UWlGbWxGcm0zZXhRc1MxajM1a0c2Wm9BSnNnMl8tWWFGQmtOdVF5eDNBRjdfVVYyT2VBanRmQzlocEZxbnMxS0dHMERQbUVNVnlLcE1udGJoa3RFWFJlMjN5Si0zdEdKYzdzX3VvZEpFbEk3Qk5QWVpNQnZGZ3lBMw?oc=5",
     "source": "BeverageDaily.com",
     "date": "2026-03-06T08:00:00+00:00"
-   },
-   {
-    "title": "ラスベガス蒸留所、2026年3月に初のジンウィークを開催すると発表",
-    "originalTitle": "Las Vegas Distillery Announces First Gin Week March 2026",
-    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxONGtNVEg3TExKS21fWXJrN2RCUDVsNmRfODRtSDV2UWRaZUUwUkpnS3JKUlJnVUgwU00waXlkTHZKd1k1UDBYWUxtUHlIOE9FcEdPMi1xTWFFdDNrV1Axd19CaDNsN005NlU3Ymt2Y1lUOXN2cmNXLWdwdEFYMXdDa2dBazZqR1pfNDJTR2lMQ2l2SjJrUFhfWVN0Q3hkUQ?oc=5",
-    "source": "The Whiskey Wash",
-    "date": "2026-03-05T08:00:00+00:00"
    },
    {
     "title": "トップスピリッツ 2026年2月発売",
@@ -199,11 +192,18 @@
     "date": "2025-06-23T07:00:00+00:00"
    },
    {
-    "title": "正真正銘の蒸留所がデビュー、ニューイングランドのスピリットを瓶詰め",
+    "title": "正真正銘の蒸留所がデビュー、ニューイングランドのスピリッツを瓶詰め",
     "originalTitle": "Veritable Distillery Debuts, Bottling The Spirit(s) Of New England",
     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTDdvWDRqQUpNZ3FudmxCbV82Y0pNUXg3dDR2cmJxWWZCejJlVmJqeTQzNklJeHBRaHU2MWluZDBGTnpzVE5jcEx4UVVCa3lObUFzNXh0Z3BPT0p0QWEyZUQ3ZXhxVDFmQUpTdnVyVUJYY2hqVTBtRFlNX0hmYkxudU5hRUI2TVoyREdmeF9QRWZXM3VlcGkwdkFLRnpqeFFWanNUakVQZWVRREh0LVU1ZE5ocnRFa0pkU2tv?oc=5",
     "source": "PR Newswire",
     "date": "2025-03-27T07:00:00+00:00"
+   },
+   {
+    "title": "ニューヨーク蒸留所ギルドが新しいアプリをリリース",
+    "originalTitle": "New York Distillers Guild Releases New App",
+    "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQRnN4TkZ5VEFBdjBzUW9hZjR4b19RaVhEVGZHWi1zcFN5UFFxSTlrVnY4Tm5WNUxVcTZkTkF6N2RDdGhkT29SVDVsU2tsZTVJSGRGM3lfV0Y4Sk1FTEg2dEpnVHpzY2tVeFhSZ1huVWFvOF9fc2xvZWZoYWpXMjR3RkxuT2VkM1NxM2c?oc=5",
+    "source": "Fred Minnick",
+    "date": "2025-03-14T07:00:00+00:00"
    },
    {
     "title": "2024 年にオープンする蒸留所トップ 10",
@@ -227,7 +227,7 @@
     "date": "2024-12-11T08:00:00+00:00"
    },
    {
-    "title": "新しいボシー蒸留所で2025年春に操業開始",
+    "title": "新しいボシー蒸留所で2025年春に操業開始予定",
     "originalTitle": "Operations to begin at new Bothy Distillery in spring 2025",
     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOX2pES0E4ZU1VaVgzMTJTSFBHdXdsTE9PQUtnaXhGUmI3OUo0OXRHbHh4ZDRRVUl4TEdKSWFQcHVVNExUNy1BS19NbGE2R1JwSFNFc3Nzd3Q4SF8tVXZzeFQ1aFNyZzVuS3RVM0Q5YXpuam16TW96YzRnSjlKNjBmRlgyeHhSZC1wRmZMZzFEa1Y1WE1T?oc=5",
     "source": "Whisky Magazine",
@@ -246,13 +246,6 @@
     "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPT2xWWXRndE0zRm95aHY5UnNoVnZWZkV5aF9lQ3NrZmdvNEx6YUVCQ2pDZjVIS2JQZWxKRnFfcVpQZ0lNcTAtWlZpRWJOTXMwNkVYSlNvZndOdE0yTDNjdllBRVBHVHVRSDk3Wno5NUV4ejlGWmJWMnFTOUp6UkdoVDRCd2ZsaHBLVGJiVUZ0Uzd6NE1ab1h3c3FsQ1QyQTctMUtnVWlFMFhoT3EyNWd3akN1VkJubzNRd1VxZlhR?oc=5",
     "source": "Robb Report",
     "date": "2024-11-07T08:00:00+00:00"
-   },
-   {
-    "title": "Reuben’s BrewsとOOLA蒸留所が缶カクテル「グレイハウンド・スプリッツ」を発売",
-    "originalTitle": "Reuben’s Brews and OOLA Distillery release Greyhound Spritz canned cocktail",
-    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOa2NYaTMwMDhUNWFlYjlGWmNMQ0kyd1R1djFReDI2dGlpSEFiblhtNkJmc1hYNjJxWkc1bXFxTnhLRXN4bVk4S0hvcWo1UUhkWE54VnQ0VHl4S0VXVlJNbEpHU29kcXdCMUF5TDlOUDJGZVI5WG9IVTBRdExKYWszN3NxLUdtc1hlSFZFTlhMbXFHRmptaVVDSTRCUkFVd3NORXo3MXQzd3dMaGNyN1FaQ3Bn?oc=5",
-    "source": "New School Beer + Cider",
-    "date": "2024-07-26T07:00:00+00:00"
    },
    {
     "title": "レビュー: ボタニストはウイスキーの理想をジンの世界にもたらします",
@@ -278,18 +271,18 @@
   ],
   "japan": [
    {
-    "title": "山梨発GEEKSTILLが『World Drinks Awards 2026』で日本初の快挙達成",
-    "originalTitle": null,
-    "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE1VbERjWUlZckk2N1NwbV9wYlhELWkzblF4dVZXdUpSTVVMRlBac1dKVW5qT0RsN2VVN2dFZ25ublhaS0Zy?oc=5",
-    "source": "Koubo",
-    "date": "2026-06-06T00:23:12+00:00"
-   },
-   {
     "title": "山梨発の蒸留所「GEEKSTILL」が国際コンペティション『World Drinks Awards 2026』にて日本蒸留所初の快挙！",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9JeWRUbEpWbUR6WG4zMzRSdWI1Z0Zubm4ydnJZT2hhNV92X1J1a2dWa3lYMHZ6dW8yRC11SVNodjF1ekhMc1BEVlRRc3Q4UzNMZlBuQ2JaYmo1QmVRTFpRN1FWb0xMMEY0Rm9YcDhvV2MwQnJsWU5uZV8tVQ?oc=5",
     "source": "ニコニコニュース",
     "date": "2026-06-05T18:15:21+00:00"
+   },
+   {
+    "title": "MAWSIM × Bar BenFiddich 世界で評される両者のコラボレーションが実現！クラフトジン『GIN｜x BenFiddich 2026 Twin Batch Edition』を発売",
+    "originalTitle": null,
+    "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBDQmlBU25WNERIWVc5WFpOUUN4TW5uT2JwTldOTy1SZVNBRzUxWlBHUGUxTzFsYVJkOHZ5NC1zWlpZZ0pBZHBQMXBveGJ5VGZ3Ym41Tnd3?oc=5",
+    "source": "フーズチャネル",
+    "date": "2026-06-05T17:06:21+00:00"
    },
    {
     "title": "国立大学発ベンチャー蒸留所、「山椒ジン」でTWSC金賞受賞。徳川家ゆかりの“門外不出”わさびを極限抽出した「わさびジン」も同時解禁。",
@@ -509,13 +502,6 @@
     "date": "2025-09-01T07:00:00+00:00"
    },
    {
-    "title": "加熱式たばこ「Ploom X」が「紅櫻蒸溜所」とコラボレーション ！ オリジナルクラフトジン が新発売",
-    "originalTitle": null,
-    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE0xWHBxV3VWUnVmVFY4RGcwc1NSUHZHeTVCX2ZPTmdHcm1nc0w1OThmWEdzMGxyZHgwQmxPYkZ6SnJPQlJyc2M5N3ZFRldIMGE1bUpJdXMxOXA?oc=5",
-    "source": "funq.jp",
-    "date": "2025-08-27T10:21:20+00:00"
-   },
-   {
     "title": "【明日オープン】公設民営の蒸留施設でトドマツを使ったクラフトジン「雪の窓」新発売！（東川町）",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBoYnF6VGtxdE9FakNyQ3JXVkR1aDFuQWI3T2ZwMzVxVGFSTWFtVndqTTNSdXA2N2ZLc09xdTRGNVBlUURKSUt3d1ZhQU81RGdqOWhj?oc=5",
@@ -535,6 +521,13 @@
     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9WakNIZnNLVkNwY3VpOUFKOEIzNWJPU3doQ2VDR3lGSm40c09ydEZ3SmNwZURXbDhDNDdXLVRnaFh6ZXpISEgweWZZU0N1Ni1UOXNleVZNOFgxVVMwaHozZVhrY2plS0diemc?oc=5",
     "source": "PR TIMES",
     "date": "2025-07-30T07:00:00+00:00"
+   },
+   {
+    "title": "禁断の酒”アブサン”再販決定！マッドサイエンティストの研究結果のご報告。",
+    "originalTitle": null,
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5yQWI3UmNDS2ZTaFV5UkVnT1kzYzFEbkt0cnJMRVhMTWJGajFkUnhJNHU2dWlJMUxBVE5VdGludHJQWGxUeW5fSWgtdlduMG11cG1BWGJrQ3Q4X1pnZGlCeU5RcVFTYzF5c2c?oc=5",
+    "source": "PR TIMES",
+    "date": "2025-07-24T07:00:00+00:00"
    }
   ],
   "trend": [
@@ -614,6 +607,13 @@
     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5JRDZBRWt2cjhxNVFVUk5DZFBnV2pRMEJlRUY3bS1UNXVEZ1A3VkllTHJmT3F6Nmw3bExwRnB0TjlPLWN1R0FxQ2prWmJTamF1WEFEV2NKNzcyTXpxNl9KTVVpSmhjT3NTb1E?oc=5",
     "source": "PR TIMES",
     "date": "2026-02-19T08:00:00+00:00"
+   },
+   {
+    "title": "BevAl が追跡するトレンド: 2026 年の米国のオンプレミス",
+    "originalTitle": "BevAl Trends to Track: The US On-Premise in 2026",
+    "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPeWNHanppOGlzVHlfOC1Sb0NOalE4LWFwOHRRVUxuenFhVF92MXlTZmdiUEI1Qmw0YWg5bFV5Snk5MmFnSVVDQ2pmV2VLNmh4aGcwczNVdXgxTngwSktUSE9qaW55dndpemxzWGJtd3FNa1pwOTYxRTFiSndqMGZZdHpobGo4MUMzMEJwd3N6YVhCZWNTWF9GM1ZDMzVhWXdvM09hRkln?oc=5",
+    "source": "NIQ",
+    "date": "2026-02-12T08:00:00+00:00"
    },
    {
     "title": "豊富な水と土地のボタニカルで醸す。世界レベルのクラフトジンを生み出した「野沢温泉蒸留所」テイスティングルーム＆オリジナルカクテルバーも併設＠長野県･野沢温泉村",
@@ -798,13 +798,6 @@
     "date": "2023-01-02T08:00:00+00:00"
    },
    {
-    "title": "2023年のカクテルトレンドを予測する",
-    "originalTitle": "Predicting the cocktail trends of 2023",
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1wdnhLLUx0MzNWei1Rb3ZNYXpEb2FLdGRuTGNvVGFhNDRjaHVjemZhdmFTN0N0LXg0NEJndjkwWG1EZ0lZMWxacmdjU2pRS2x6TTA1ZndGWkplb1kxdmpqRk5LYkc4THlDRlVSNW9pRUVXNU95S0E?oc=5",
-    "source": "The Spirits Business",
-    "date": "2022-12-12T08:00:00+00:00"
-   },
-   {
     "title": "この秋を形作るドリンクトレンド",
     "originalTitle": "The Drink Trends That Will Shape This Fall",
     "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQeGtaQ1hhemo0NEFvaUNLeU16alJzRFJwMU1XUy1wbVlnbkFTXzluY2dMRVg3WXNtanlaR3pyUWhWTUcwUXcyc3g2OVBXYmt1XzRSY0xxbGM4MVlKX19POGVGVmRxaWtjVVlBSnFEaWZrLXlhem9XYUtFVGxXcFVLNEl0UVJsQQ?oc=5",
@@ -849,7 +842,7 @@
     "date": "2026-06-03T01:50:00+00:00"
    },
    {
-    "title": "西オーストラリア州のジンメーカーが政権から世界タイトルに上り詰める",
+    "title": "西オーストラリア州のジンメーカーが政権から世界タイトルに浮上",
     "originalTitle": "WA gin maker rises from administration to world title",
     "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOYWhQM1V3dmt3ZVNVOUljQ0RabUVCTmxPY2JHQjFUSlRIbGxVQUtVSU0yVWd3T0tkaWFIU1RTdHFmcTRveHY0NmNfRUZ5SjQ3MFl3OUpVN0N0b1g4dXRLQU1jVnp6aGZIRE9Gc0dPcy1KT2dIX0REUV9VT1ljMEV2MnZRRk84czdJRG5ra1I1LVFLUVV4YktrNGRHVlFXTFdQVl82YVNnQTlGaVIybWtyanhZeUxESGV0V0pIWGMzcnRmQmxnRHNoajBYc3g0Q0c4S01waHB0U3NDWFozdmtuV0tB?oc=5",
     "source": "The West Australian",
@@ -884,13 +877,6 @@
     "date": "2026-05-21T07:00:00+00:00"
    },
    {
-    "title": "「イン・ザ・ウェールズ・ウィンド」ジンが世界タイトルを争う",
-    "originalTitle": "In The Welsh Wind gin in running for world title",
-    "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQWWFseHluNHlhTlhTMFZINTdIQ3dTQjY1WTQxYThQV1FkT09SbTJuazRrMGZySmZlOGR0NWtfSVpwSTZUTGhROUhvUXdRc0JXUjk3aUthNFZFdmwwNzVWMGVZSElJcWM1bEExNTZ6SEpjWThaSldPcjI1cVlCVlJyY1JuQy1rWUhNSG50Sjk0NW0yZkk?oc=5",
-    "source": "The Pembrokeshire Herald",
-    "date": "2026-05-21T07:00:00+00:00"
-   },
-   {
     "title": "これらは（本当に）南アフリカ最高のジンですか？",
     "originalTitle": "Are these (really) South Africa’s best gins?",
     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPOUt0N1VzeVdnM2N4ZC1xMS01SlltR2pXME9yQlFiNndITXNKS2JPLXhtQWVNSGt3U3VoZWJjRVhYV1h4Z2xSbVJXaFh5U1RFTk5wUzliVVJzT0ptZ3IwM0VoalhkNDJvcDczUVpjUE5VUkpqSWpWZjRhSlZJTDN4dmJQaW92TG96MUlGM0ZR?oc=5",
@@ -905,11 +891,11 @@
     "date": "2026-05-19T22:34:39+00:00"
    },
    {
-    "title": "ブリストル蒸留所がワールド・ジン・アワードで二冠を達成",
+    "title": "ブリストル蒸留所、ワールド ジン アワードで二冠を達成",
     "originalTitle": "Bristol distillery seals double win at World Gin Awards",
     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQLXlQUjlMamJwOVVHUklGWkFTT3VDT0xPdG1yaTE2VGdCckFDZi1QalA3dWFiSnA4c2c0c3lSZmxVZmtkZFV5dUpDOTdXU0pPNjJUWGdTY054Tjc1U2JKY3JhNEJaejk2MElGV3A0c09PQmVRZ1FDU2RTOHJqQldQY09idXZnME1GY2pfU2thV3V1bTdHYVl0ZWJPSTdaRDRORDgxREtSLTk5WktyZTFPS0NkSjF1a1E3cXc?oc=5",
     "source": "Bristol24/7",
-    "date": "2026-05-11T07:00:00+00:00"
+    "date": "2026-05-11T18:12:21+00:00"
    },
    {
     "title": "キングアイランドのピノ・ノワール・ジンがオーストラリア最高のタイトルを獲得",
@@ -926,18 +912,18 @@
     "date": "2026-05-09T07:00:00+00:00"
    },
    {
-    "title": "トーントンのパブ、ワールド・ジン・アワード受賞で「信じられないほど誇りに思う」",
+    "title": "トーントンのパブ、ワールド・ジン・アワードで受賞後「信じられないほど誇りに思う」",
     "originalTitle": "Taunton pub 'incredibly proud' after award at World Gin Awards",
     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPVDEyN2pCUVduQ3lMMTllaUgyNEVUa1dZdTlqY0ZLMmtLZ0NMandEaXNTNDVibXJlVmw5amVPN3FjN2VndjkyekFiejI4MGs4V3lhY25YNVBHb3gwdXBmTVJzM2NUTVNoT1VtdWVJV0h0TkxNYkFlWXMtdnkydVYzV2Fyc1BiWUpwRndnbWFxblAxeVFRLUVMOTlOdUFxTjB6Q0hZZXNqVTRzQQ?oc=5",
     "source": "Somerset County Gazette",
     "date": "2026-05-08T07:00:00+00:00"
    },
    {
-    "title": "受賞歴のあるハロゲートのジンブランド、スリングスビーが投与後に販売",
-    "originalTitle": "Award-winning Harrogate gin brand Slingsby sold after administration",
-    "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBiZjJIRVdMVEpEOGktSnVOc3JXeGFFVFplZkg2Mk9oMjJsMTBOTjl1NS1aNjBIVS1yVDhuSnZpaE1rVEJwV3ZzdlNwd3ZjZDlrc1R3RWtmUEJUSzlU?oc=5",
-    "source": "BBC",
-    "date": "2026-03-27T07:00:00+00:00"
+    "title": "2021年メイド・イン・ザ・サウス・アワードの受賞者をご紹介します",
+    "originalTitle": "Meet the Winners of the 2021 Made in the South Awards",
+    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOcFZFNzJDUUFCTG80Tm5nWm16azVQdDZZd29UemFKek83R2xheGoxVUgyWVpPTFBVanhVdmtXaGkwZWZjUnoyS3Vmd1NQelZGZk5vYzFSMmZCcWRqNjdRRGNXVlVyN3lWM2d5ZUVEVmVYa3BYcGZZSTdsVmNvenlkOFVoMkQ?oc=5",
+    "source": "Garden & Gun",
+    "date": "2026-04-15T10:05:27+00:00"
    },
    {
     "title": "この 24 ドルのボトルは、2026 WSWA ワイン & スピリッツ テイスティング コンペティションでベスト ジンに選ばれました",
@@ -968,20 +954,6 @@
     "date": "2026-01-26T08:00:00+00:00"
    },
    {
-    "title": "カンボジアの蒸留所は、最高級のジンとラム酒に外来植物とグリーンテクノロジーを使用しています",
-    "originalTitle": "Cambodia’s distillers use invasive plants, green tech for top-shelf gin and rum",
-    "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNNGFpdEtVTTk5ejBOYnlyWVp4TTh5WG80UGNLYlNfTGxKeFQ2d2dmcVNCRWh5ZEN3NDlmN1loMEVmUXBxY1VfMndZMTdEdThhSlRWYThNdWg5WTNzdDNqZkNCTUl5cXBKT3cyQXVxUFdyTTdlN0FqanhBdm0tRG50aWZZV082UzhPaU9HbUExOXFqTkJjV3lKMlEwUmNxR2cycDAwdEJkeXpWaFpYcXF4aA?oc=5",
-    "source": "The Straits Times",
-    "date": "2026-01-23T08:00:00+00:00"
-   },
-   {
-    "title": "サラ・サージェントはパークシティ唯一の2026年ジェームズ・ビアード賞準決勝進出者",
-    "originalTitle": "Sara Sergent is Park City’s only 2026 James Beard Award semifinalist",
-    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNdkNiaU9WaUxmXzZXN3VQNUJuZVAteVlxa3h0Y2w3Qm5LbnVhZ0s2c2gtN2d2Z29Td1hYSWdXWWswVUFpMmx0MWJyR3VpN25LYkpHY2xzVUZlT2kwYzJGNldGcElJRjZFUUZRR2g5WklReU9Tclk1bklKS25pMGgta0llNTR4eGFySEpmeWJpWVNkTHpxYzAzOWVqdFh5Um1oRDc5elR6T1ZjVEF3?oc=5",
-    "source": "Park Record",
-    "date": "2026-01-22T08:00:00+00:00"
-   },
-   {
     "title": "世界最高のジン — 2025 年のコンテストを制した 9 ボトル",
     "originalTitle": "The World’s Best Gins—9 Bottles That Ruled The 2025 Competitions",
     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMUprbTQ5M2w2cmZFQkFrdE5PbmRYQVM2ck80T2RwWVR0Z3dfSUpGMEdnYmlRQkhsMEo3NHFiTHluVkhIZnp1cWE5YUFCNlZmODl0TFVtR1IzbUt3aWVQYmNVYlpQa2ZKZkx6dzJtT0NDa19YOGtVTVcxdEgxajhKVHpMd2RiWGVoVjQ2bTk2b2JSUUJIREZjRXB4b2JOSTVxaGhIN3BERGVzZHFaY1BJWDdFSVYzaVpmdjZV?oc=5",
@@ -994,6 +966,13 @@
     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOaGFkbDlaRHo1Y0x5Y05vN0VTVUJKMktjbW1mcTJTQnk3c1Z2Wl9taXZuODh1aW5tOXFxSlI4RGJaYUVJRnk2eHpaOWxWeFVJakVyaWQzT3JURjZlNi12T3N5b2t5dTNmZndFYzRHeG14OTdocVpNWS1JeUl6QmNHdFJlUms4cDVDNDF0cDZhVThYZW9TX2paZFlxUklkWHFGMURjYzVxN005Sll5UFJramtOUHhxcVc4MkdyZTBueUw?oc=5",
     "source": "North Shore News",
     "date": "2025-12-15T08:00:00+00:00"
+   },
+   {
+    "title": "このシンガポールのジン ブランドは、2025 年の世界最高のジン メーカーに選ばれました。",
+    "originalTitle": "This Singaporean gin brand was just named the world's best gin maker for 2025",
+    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNT2gzQVF0WGM3TjI4cmVmbHlsVzBqd3J3azZybWNhS1ZCdTdGOEszMXBaWmZnbjBUR3g3cl82N2JVdGxNVDBrN0c1Y2ZxbFE2STRmMHItbnVfYmxWWlRrU2R2M2o5cUFoYXBhcFZ6SWNRVmhoSENoelY2VDVqT0JiVU1zTFNwQTZZbnl1WnByUzIyQmZITEpfQ3BETnlWaHVDWjVVTVprNXpkLTZtY2pJNkJTTQ?oc=5",
+    "source": "Time Out Worldwide",
+    "date": "2025-11-27T08:00:00+00:00"
    },
    {
     "title": "ザ・ジン・コーポラティブ・アワード2025受賞者",
@@ -1017,11 +996,25 @@
     "date": "2025-11-14T08:00:00+00:00"
    },
    {
+    "title": "NB ジンがスコットランド ジン アワードで 5 つの部門でノミネート中",
+    "originalTitle": "NB Gin in the running in five categories at Scottish Gin Awards",
+    "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMk0zYWtsLVlQcnJMZ1RzWGdMSUlNZld1eTRKT3Y1a3dfX0dMaVFnQ2R5WUxTclJvTkJGdk1WZGJISFZ1aHUzUE9UTV9FdFZ5akdqSmhWNWpnVmpQazdFS3FIWHdveDEta3QyVGxBR0tHblNqVFp4T29pZWl4cmgta0tQYm8yaFVqcnJqWVMzZFBmTVRrdXBRa0lGS1RvWU84cmI4cE1R?oc=5",
+    "source": "East Lothian Courier",
+    "date": "2025-10-24T07:00:00+00:00"
+   },
+   {
     "title": "2025 年米国のベスト クラフト ジン蒸留所 10 社",
     "originalTitle": "10 best craft gin distilleries in the US for 2025",
     "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBXMVVNV0pVMVk4c3NKVjRqV3d4WjZBSVU5aDRsV3BWVm83Rm1rWnpFTU43VXY1WVpSZ2ZIVUFEWVFYbU5zUUx6dWJjaE5PelFFbjlDM0ZLckpvTzFmQml3?oc=5",
     "source": "USA TODAY 10BEST",
     "date": "2025-10-22T07:00:00+00:00"
+   },
+   {
+    "title": "2025年ラスベガス・グローバル・スピリット・アワードに5つの世界クラスのジンが輝く",
+    "originalTitle": "5 World-Class Gins Shine At The 2025 Las Vegas Global Spirit Awards",
+    "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQbURlQ041V1BuYklVZGRIQlJLa3I2ZHRQWVJUTG9nOHcwTFV2dlNEMnlIUWRSVkhDRmJpcUdTR2FBbUdCNnJjZm9LbG5CaWlsSko4Q1N0blpIdkN0d3hJTVJtR3NzalJBcTUyVHRLV2pLU0pob2NDUDBTSHNuWUFEblRaaHJqOG1BWHBIOXFwS0Z5bWs2OUx0cUdBaENKbDZNUm02cm00NFhQYVNaYkVSRm4yQ0dsQ1IyMnBPTnRSZkg?oc=5",
+    "source": "Forbes",
+    "date": "2025-10-07T07:00:00+00:00"
    },
    {
     "title": "IWSCが2025年のスピリッツトロフィー受賞者を発表",
@@ -1043,6 +1036,13 @@
     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPX0J3WUNuUHhmRGdJX2FmUmhFZ0s0dTJPRDZ5Q1BkOWtLcXN5c2NKdFFjb2dhb0J4Mm5xUVFQMkF5ZkgwQ3NaM2lXTi1FNzNuelgwbE83WjliSXNNenJ0YnE2amQxQVloSEFIZTQ3TnZtZVhMdzVuNFZMZTRzSmtUOVdMS3Y3eXJFbDFCYXJ5Z1dVdm1xajMyQ0RFOTM0LU44RGZ1ZVNxZFdUVTdDWXpDOFlMMVhqMDY5Y0lnYWVrbEU?oc=5",
     "source": "Chronogram Magazine",
     "date": "2025-08-14T07:00:00+00:00"
+   },
+   {
+    "title": "収穫した雨水から作られたインディアンジンがカリフォルニアのSIPアワード2025でダブル金賞を受賞",
+    "originalTitle": "Indian gin made from harvested rainwater wins double gold at SIP Awards 2025 in California",
+    "link": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOUXpBSFZWOFYxWFVQY1h2TjJqcGdWVEdVVWdTUF9fWXhWVHpqVmhlVUtpek05S2lSVzYzYmt2LWVfN3REdU4yNno3R18tekpRV1dZekRDN3F0anRhd2JtZkJTdVpnQUpjd013ektPaVBhWDBRM2tlVEhBRTFaeEo5bGhxMkNQMlFwVHFrcldzdHI5dEhqM251VzI0ZnhEempOX3pPQ0tCQVhmSjRhNmtOMUJxMkJEUU9XbmRpYWdiMHc5WUFxVlRQX2hNSHk1X291QVlzNVNHa2xZMWlBMjFvMVFrNndmYTl0T3lSNXh2MTYtME9xRUFRZUFvNmVoRlE0Q3dF0gGIAkFVX3lxTFB5c2hNLU9UOVk3UWFRbXgxVll0M19zazJZck1qX0hHYzl6SXBuNzFYSlAxbzR5VWVCeFdKQTF3ajBlNk1Sb04tLVFUMlAxeHRKU3lieXZnX3ptVUx6SldIaE0tRDd2S2JRc0hRMkFUUDBJT0VRMEE5YzZOaHdEanRZTlE2d0FSQWJXUUUxMGh5M05Bd1JHTmh1cU1VMWhIWnk1c3dMWERuV0c2LVFIbkliS0JjeG00MEs5bDhTbWxKcllKak1acWgwVmFWdFdXNGZmMjlJTThhR2NJdDFfU2lmZ0FQLWRLbmlfeUhGRXU5RlVGOUxydGVDeWFyRmF6cjMxbnR6eWRpTw?oc=5",
+    "source": "The Times of India",
+    "date": "2025-07-30T07:00:00+00:00"
    },
    {
     "title": "チャタヌーガのゲート 11 蒸留所が 2025 Sip Awards でプラチナ賞を受賞",
