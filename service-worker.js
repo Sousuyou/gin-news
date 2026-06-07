@@ -1,7 +1,7 @@
 // Bar Soutsu ジン最新ニュース — Service Worker
 // 更新方針: ページ本体(HTML)とニュースデータ(JSON)は「ネットワーク優先」で常に最新を取得し、
 //   オフライン時のみキャッシュを使う。画像などは「キャッシュ優先」で高速表示。
-const CACHE_NAME = "gin-news-v1";
+const CACHE_NAME = "gin-news-v2";
 const CACHE_FILES = [
   "./",
   "./index.html",
