@@ -252,6 +252,72 @@
     text-transform: uppercase;
   }
   .article .meta .src { color: var(--text); }
+  /* 新着バッジ（前回閲覧時刻より新しい記事に表示） */
+  .new-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 1px 7px;
+    border: 1px solid var(--red);
+    background: var(--red);
+    color: var(--on-accent);
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    border-radius: 2px;
+  }
+
+  /* ====== 今日のまとめ（ピックアップ） ====== */
+  .pickup {
+    margin-top: 16px;
+    border: 1px solid var(--line-strong);
+    background: var(--panel);
+  }
+  .pickup-head {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line-strong);
+    background: var(--panel-soft);
+    color: var(--text);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pickup-head .pickup-note {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+  .pickup-item {
+    display: block;
+    padding: 11px 14px;
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid var(--line);
+    transition: background 160ms ease;
+  }
+  .pickup-item:last-child { border-bottom: 0; }
+  .pickup-item:hover { background: var(--panel-soft); }
+  .pickup-item .pickup-title {
+    margin: 0;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+  .pickup-item .pickup-meta {
+    margin-top: 5px;
+    font-size: 0.62rem;
+    color: var(--muted);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .pickup-item .pickup-meta .src { color: var(--text); }
   /* 翻訳時に下へ小さく出す原題 */
   .article .orig {
     margin: -2px 0 8px;
@@ -373,6 +439,9 @@
     <button class="reload-btn" id="reloadBtn">↻ 最新に更新</button>
   </div>
 
+  <!-- 今日のまとめ（ピックアップ）：最新3件のダイジェスト -->
+  <section class="pickup" id="pickup" hidden></section>
+
   <!-- ニュース一覧 -->
   <div class="feed" id="feed"></div>
 
@@ -397,6 +466,8 @@ const CATEGORIES = [
   { id: "japan", name: "日本のクラフトジン" },
   { id: "trend", name: "バー・業界トレンド" },
   { id: "award", name: "受賞・コンペ" },
+  { id: "event", name: "イベント・限定品" },
+  { id: "newdistillery", name: "新設蒸留所・オープン" },
 ];
 
 let newsData = null;        // 読み込んだ news.json をまるごと保持
@@ -406,6 +477,44 @@ const feedEl = document.getElementById("feed");
 const statusEl = document.getElementById("status");
 const countNumEl = document.getElementById("countNum");
 const updatedAtEl = document.getElementById("updatedAt");
+const pickupEl = document.getElementById("pickup");
+
+/* =========================================================
+   ■ 新着バッジ用：前回このページを見た時刻を localStorage に保存
+   それより新しい記事に「NEW」バッジを付けます。
+   （file:// やプライベートモードでも落ちないよう try-catch で保護）
+   ========================================================= */
+const LAST_VIEW_KEY = "ginNews_lastViewedAt";
+// 今回の判定に使う「前回閲覧時刻」（このページを開いた時点で一度だけ読み込む）
+let lastViewedAt = readLastViewedAt();
+
+function readLastViewedAt() {
+  try {
+    const v = localStorage.getItem(LAST_VIEW_KEY);
+    if (!v) return null;
+    const t = new Date(v).getTime();
+    return isNaN(t) ? null : t;
+  } catch (e) {
+    return null; // localStorage が使えない環境では新着判定を無効化
+  }
+}
+
+function saveLastViewedAt() {
+  try {
+    localStorage.setItem(LAST_VIEW_KEY, new Date().toISOString());
+  } catch (e) {
+    /* 保存できなくても表示には影響しないので無視します */
+  }
+}
+
+// 記事が「前回閲覧時刻」より新しいかどうか（新着＝NEW判定）
+function isNewArticle(a) {
+  if (lastViewedAt === null) return false; // 初回訪問時は全部NEWにしないでおく
+  if (!a || !a.date) return false;
+  const t = new Date(a.date).getTime();
+  if (isNaN(t)) return false;
+  return t > lastViewedAt;
+}
 
 /* =========================================================
    ■ データの読み込み
@@ -429,7 +538,43 @@ async function loadData() {
     updatedAtEl.textContent = "読み込み失敗";
     return;
   }
+  renderPickup();        // 今日のまとめ（最新3件）を先に描画
   showCategory(currentCategory);
+  saveLastViewedAt();    // 描画が終わったら「今見た時刻」を保存（次回のNEW判定用）
+}
+
+/* =========================================================
+   ■ 今日のまとめ（ピックアップ）
+   全カテゴリ横断で最新3件をコンパクトに見せるダイジェスト枠。
+   出勤時にここだけ見れば最新が分かるようにしています。
+   記事が3件未満ならある分だけ表示します。
+   ========================================================= */
+function renderPickup() {
+  // 「すべて」と同じ結合・重複除去・新しい順ロジックを再利用
+  const top = articlesFor("all").slice(0, 3);
+  if (top.length === 0) {
+    pickupEl.hidden = true;
+    pickupEl.innerHTML = "";
+    return;
+  }
+
+  const items = top.map((a) => {
+    const dateStr = a.date ? formatDate(a.date) : "";
+    const newBadge = isNewArticle(a) ? '<span class="new-badge">New</span>' : "";
+    return `
+      <a class="pickup-item" href="${escapeHtml(a.link)}" target="_blank" rel="noopener">
+        <p class="pickup-title">${escapeHtml(a.title)}${newBadge}</p>
+        <div class="pickup-meta">
+          <span class="src">${escapeHtml(a.source || "ニュース")}</span>${dateStr ? " ・ " + dateStr : ""}
+        </div>
+      </a>`;
+  }).join("");
+
+  pickupEl.innerHTML =
+    '<div class="pickup-head">今日のまとめ（ピックアップ）' +
+    '<span class="pickup-note">出勤時はここだけ見れば最新が分かります。最新の' + top.length + '件です。</span>' +
+    '</div>' + items;
+  pickupEl.hidden = false;
 }
 
 /* =========================================================
@@ -485,7 +630,7 @@ function render(articles) {
     return `
       <a class="article" href="${escapeHtml(a.link)}" target="_blank" rel="noopener">
         ${showCat ? `<span class="cat">${escapeHtml(catName(cat))}</span>` : ""}
-        <h3>${escapeHtml(a.title)}</h3>
+        <h3>${escapeHtml(a.title)}${isNewArticle(a) ? '<span class="new-badge">New</span>' : ""}</h3>
         ${a.originalTitle ? `<div class="orig">原題: ${escapeHtml(a.originalTitle)}</div>` : ""}
         <div class="meta">
           <span class="src">${escapeHtml(a.source || "ニュース")}</span>${dateStr ? " ・ " + dateStr : ""}

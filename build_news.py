@@ -26,26 +26,72 @@ from email.utils import parsedate_to_datetime
 # =========================================================
 CATEGORIES = [
     {"id": "world", "name": "海外の新商品", "feeds": [
-        {"q": "gin distillery new release", "lang": "en"},
-        {"q": "new gin launch brand",       "lang": "en"},
+        {"q": '"new gin" launch OR release', "lang": "en"},
+        {"q": "craft gin distillery bottling", "lang": "en"},
+        {"q": "gin new expression flavour", "lang": "en"},
     ]},
     {"id": "japan", "name": "日本のクラフトジン", "feeds": [
         {"q": "クラフトジン",          "lang": "ja"},
         {"q": "ジン 蒸留所 新発売",    "lang": "ja"},
+        {"q": "ジャパニーズジン 新商品", "lang": "ja"},
     ]},
     {"id": "trend", "name": "バー・業界トレンド", "feeds": [
         {"q": "gin cocktail bar trend", "lang": "en"},
         {"q": "ジン カクテル バー",      "lang": "ja"},
+        {"q": "gin market trend 2026",  "lang": "en"},
     ]},
     {"id": "award", "name": "受賞・コンペ", "feeds": [
-        {"q": "gin awards winner", "lang": "en"},
+        {"q": '"gin awards" winner', "lang": "en"},
         {"q": "World Gin Awards",  "lang": "en"},
+        {"q": "ジン 受賞 金賞",      "lang": "ja"},
+    ]},
+    {"id": "event", "name": "イベント・限定品", "feeds": [
+        {"q": "gin limited edition release", "lang": "en"},
+        {"q": "ジン 限定 数量",        "lang": "ja"},
+        {"q": "クラフトジン フェア OR イベント OR フェス", "lang": "ja"},
+    ]},
+    {"id": "newdistillery", "name": "新設蒸留所・オープン", "feeds": [
+        {"q": "new gin distillery opens", "lang": "en"},
+        {"q": "ジン 蒸留所 オープン OR 新設", "lang": "ja"},
     ]},
 ]
 
 MAX_PER_FEED = 20            # 1検索あたりの最大取得件数
 UA = "Mozilla/5.0 (compatible; GinNewsBot/1.0)"  # アクセス時の名乗り
 _translation_cache = {}      # 翻訳結果の使い回し
+
+# 主要なジンのブランド名（タイトルに「gin」が無くても、これを含めばジン記事として採用）
+GIN_BRANDS = [
+    "hendrick", "tanqueray", "beefeater", "bombay", "four pillars", "monkey 47",
+    "botanist", "roku", "sipsmith", "plymouth", "gordon", "aviation", "citadelle",
+    "gin mare", "brockmans", "empress", "ki no bi", "kinobi", "nikka coffey",
+    "sakurao", "drumshanbo", "gunpowder", "malfy", "hayman", "opihr",
+    "whitley neill", "st. george", "st george", "桜尾", "季の美",
+]
+_RE_GIN_EN = re.compile(r"\bgins?\b", re.I)
+# 「ジン」が酒以外（ゲーム・アニメ・人名等）を指す記事を除外するブロックリスト
+_RE_NOISE = re.compile(r"原神|攻略|ガチャ|声優|コスプレ|VTuber|フィギュア|同人|アニメ|genshin", re.I)
+
+
+def is_gin_relevant(text):
+    """タイトルがジン関連か判定（他スピリッツ・ゲーム/人名等のノイズを除外）。"""
+    if _RE_NOISE.search(text):                        # 酒以外の「ジン」を除外
+        return False
+    low = text.lower()
+    if any(b in low for b in GIN_BRANDS):
+        return True
+    if _RE_GIN_EN.search(text):                       # 英語：gin/gins を独立語で含む
+        return True
+    if "ジン" in text and "ジンジャー" not in text and "エンジン" not in text:  # 日本語
+        return True
+    return False
+
+
+def norm_title(t):
+    """重複判定用にタイトルを正規化（空白・記号のゆれを吸収）。"""
+    t = re.sub(r"[\s　]+", "", t)
+    t = re.sub(r"[「」『』【】（）()\"'’‘“”!！?？・,，.。\-—–~〜]", "", t)
+    return t.lower()
 
 
 def http_get(url, timeout=25):
@@ -138,11 +184,14 @@ def build_category(cat):
         items = parse_feed(xml_text, cat["name"])[:MAX_PER_FEED]
         collected.extend(items)
 
-    # 重複（同じタイトル）を除去
+    # ノイズ除去（ジンに無関係な他スピリッツ等の記事を除外）
+    collected = [a for a in collected if is_gin_relevant(a["title"])]
+
+    # 重複除去（タイトルを正規化し、表記ゆれも吸収）
     seen = set()
     unique = []
     for a in collected:
-        key = a["title"].strip()
+        key = norm_title(a["title"])
         if key in seen:
             continue
         seen.add(key)
@@ -166,10 +215,20 @@ def main():
         "updated": datetime.now(timezone.utc).isoformat(),
         "categories": {},
     }
+    global_seen = set()  # カテゴリ横断の重複除去用
     for cat in CATEGORIES:
         print(f"取得中: {cat['name']} …", file=sys.stderr)
-        result["categories"][cat["id"]] = build_category(cat)
-        print(f"  → {len(result['categories'][cat['id']])}件", file=sys.stderr)
+        arts = build_category(cat)
+        # 既に他カテゴリで出た記事は落とす（先に出たカテゴリを優先）
+        kept = []
+        for a in arts:
+            k = norm_title(a["title"])
+            if k in global_seen:
+                continue
+            global_seen.add(k)
+            kept.append(a)
+        result["categories"][cat["id"]] = kept
+        print(f"  → {len(kept)}件", file=sys.stderr)
 
     with open("news.json", "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=1)
