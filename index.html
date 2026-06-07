@@ -250,8 +250,29 @@
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
+  .article .meta .meta-text { flex: 1; min-width: 0; }
   .article .meta .src { color: var(--text); }
+  /* 共有ボタン（記事ごと） */
+  .share-btn {
+    flex: none;
+    border: 1px solid var(--line-strong);
+    background: var(--panel);
+    color: var(--text);
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 3px 9px;
+    cursor: pointer;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: background 140ms ease;
+  }
+  .share-btn:hover { background: var(--panel-soft); }
+  .share-btn:active { transform: translateY(1px); }
   /* 新着バッジ（前回閲覧時刻より新しい記事に表示） */
   .new-badge {
     display: inline-block;
@@ -633,7 +654,8 @@ function render(articles) {
         <h3>${escapeHtml(a.title)}${isNewArticle(a) ? '<span class="new-badge">New</span>' : ""}</h3>
         ${a.originalTitle ? `<div class="orig">原題: ${escapeHtml(a.originalTitle)}</div>` : ""}
         <div class="meta">
-          <span class="src">${escapeHtml(a.source || "ニュース")}</span>${dateStr ? " ・ " + dateStr : ""}
+          <span class="meta-text"><span class="src">${escapeHtml(a.source || "ニュース")}</span>${dateStr ? " ・ " + dateStr : ""}</span>
+          <button class="share-btn" type="button" data-link="${escapeHtml(a.link)}" data-title="${escapeHtml(a.title)}" aria-label="この記事を共有">↗ 共有</button>
         </div>
       </a>`;
   }).join("");
@@ -684,6 +706,53 @@ CATEGORIES.forEach((cat, i) => {
 
 // 「最新に更新」ボタン（news.jsonを取り直す）
 document.getElementById("reloadBtn").onclick = () => loadData();
+
+/* =========================================================
+   ■ 記事ごとの共有ボタン
+   スマホ等：OS標準の共有メニュー（LINE/X/コピー等）を開く
+   非対応（多くのPC）：リンクをクリップボードにコピー
+   feedは作り直されるので、親(feed)に1つだけ委譲リスナーを置く
+   ========================================================= */
+feedEl.addEventListener("click", async (e) => {
+  const btn = e.target.closest(".share-btn");
+  if (!btn) return;
+  e.preventDefault();   // 記事リンクへの遷移を止める
+  e.stopPropagation();
+  const link = btn.dataset.link || "";
+  const title = btn.dataset.title || "";
+  // ① OS標準の共有メニュー（対応端末）
+  if (navigator.share) {
+    try { await navigator.share({ title: title, text: title, url: link }); }
+    catch (err) { /* ユーザーがキャンセルした等は無視 */ }
+    return;
+  }
+  // ② 非対応ならリンクをコピー
+  const ok = await copyText(link);
+  const original = btn.textContent;
+  btn.textContent = ok ? "コピー✓" : "コピー失敗";
+  setTimeout(() => { btn.textContent = original; }, 1500);
+});
+
+// クリップボードへコピー（新APIが使えない環境のフォールバック付き）
+async function copyText(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch (e) { /* 下の方式へ */ }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return ok;
+  } catch (e) { return false; }
+}
 
 // 最初の読み込み
 loadData();
