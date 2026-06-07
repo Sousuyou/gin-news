@@ -25,34 +25,27 @@ from email.utils import parsedate_to_datetime
 #   lang: ja=日本語/日本、en=英語/アメリカ
 # =========================================================
 CATEGORIES = [
-    {"id": "world", "name": "海外の新商品", "feeds": [
+    {"id": "overseas", "name": "海外記事", "feeds": [
         {"q": '"new gin" launch OR release', "lang": "en"},
         {"q": "craft gin distillery bottling", "lang": "en"},
+        {"q": '"gin awards" winner OR gold', "lang": "en"},
+        {"q": "gin cocktail bar trend", "lang": "en"},
         {"q": "gin new expression flavour", "lang": "en"},
     ]},
     {"id": "japan", "name": "日本のクラフトジン", "feeds": [
         {"q": "クラフトジン",          "lang": "ja"},
         {"q": "ジン 蒸留所 新発売",    "lang": "ja"},
         {"q": "ジャパニーズジン 新商品", "lang": "ja"},
+        {"q": "ジン 受賞 金賞",        "lang": "ja"},
     ]},
-    {"id": "trend", "name": "バー・業界トレンド", "feeds": [
-        {"q": "gin cocktail bar trend", "lang": "en"},
-        {"q": "ジン カクテル バー",      "lang": "ja"},
-        {"q": "gin market trend 2026",  "lang": "en"},
-    ]},
-    {"id": "award", "name": "受賞・コンペ", "feeds": [
-        {"q": '"gin awards" winner', "lang": "en"},
-        {"q": "World Gin Awards",  "lang": "en"},
-        {"q": "ジン 受賞 金賞",      "lang": "ja"},
+    {"id": "newdistillery", "name": "新蒸留所/オープン", "feeds": [
+        {"q": "new gin distillery opens", "lang": "en"},
+        {"q": "ジン 蒸留所 オープン OR 新設", "lang": "ja"},
     ]},
     {"id": "event", "name": "イベント・限定品", "feeds": [
         {"q": "gin limited edition release", "lang": "en"},
         {"q": "ジン 限定 数量",        "lang": "ja"},
         {"q": "クラフトジン フェア OR イベント OR フェス", "lang": "ja"},
-    ]},
-    {"id": "newdistillery", "name": "新設蒸留所・オープン", "feeds": [
-        {"q": "new gin distillery opens", "lang": "en"},
-        {"q": "ジン 蒸留所 オープン OR 新設", "lang": "ja"},
     ]},
 ]
 
