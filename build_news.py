@@ -69,8 +69,12 @@ GIN_BRANDS = [
     "whitley neill", "st. george", "st george", "桜尾", "季の美",
 ]
 _RE_GIN_EN = re.compile(r"\bgins?\b", re.I)
-# 「ジン」が酒以外（ゲーム・アニメ・人名等）を指す記事を除外するブロックリスト
-_RE_NOISE = re.compile(r"原神|攻略|ガチャ|声優|コスプレ|VTuber|フィギュア|同人|アニメ|genshin", re.I)
+# 「ジン」が酒以外（ゲーム・アニメ・人名・時計ブランド等）を指す記事を除外するブロックリスト
+_RE_NOISE = re.compile(
+    r"原神|攻略|ガチャ|声優|コスプレ|VTuber|フィギュア|同人|アニメ|genshin"
+    r"|腕時計|ウォッチ|クロノグラフ|Spezialuhren",  # 時計ブランド「Sinn(ジン)」等のすり抜け対策
+    re.I,
+)
 
 
 def is_gin_relevant(text):
