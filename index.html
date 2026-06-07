@@ -587,7 +587,8 @@ async function loadData() {
     updatedAtEl.textContent = "読み込み失敗";
     return;
   }
-  renderPickup();        // 今日のまとめ（最新3件）を先に描画
+  renderPickup();        // 注目ピックアップ（重要度の高い3件）を先に描画
+  updateTabCounts();     // 各タブに件数を表示
   showCategory(currentCategory);
   saveLastViewedAt();    // 描画が終わったら「今見た時刻」を保存（次回のNEW判定用）
 }
@@ -599,13 +600,21 @@ async function loadData() {
    記事が3件未満ならある分だけ表示します。
    ========================================================= */
 function renderPickup() {
-  // 「すべて」と同じ結合・重複除去・新しい順ロジックを再利用
-  const top = articlesFor("all").slice(0, 3);
-  if (top.length === 0) {
+  const all = articlesFor("all");
+  if (all.length === 0) {
     pickupEl.hidden = true;
     pickupEl.innerHTML = "";
     return;
   }
+  // 近似重複をまとめ、「最近(3週間以内)」の重要ニュースを優先して上位3件（注目）
+  const RECENT_MS = 21 * 86400000;
+  const nowT = Date.now();
+  const pool = clusterArticles(all);
+  const recent = pool.filter((a) => a.date && (nowT - new Date(a.date).getTime()) <= RECENT_MS);
+  const base = recent.length >= 3 ? recent : pool; // 最近の記事が少なければ全体から
+  const top = base
+    .sort((x, y) => (importanceScore(y) - importanceScore(x)) || (y.date || "").localeCompare(x.date || ""))
+    .slice(0, 3);
 
   const items = top.map((a) => {
     const dateStr = a.date ? formatDate(a.date) : "";
@@ -620,8 +629,8 @@ function renderPickup() {
   }).join("");
 
   pickupEl.innerHTML =
-    '<div class="pickup-head">今日のまとめ（ピックアップ）' +
-    '<span class="pickup-note">出勤時はここだけ見れば最新が分かります。最新の' + top.length + '件です。</span>' +
+    '<div class="pickup-head">注目ピックアップ' +
+    '<span class="pickup-note">受賞・新蒸留所・限定など、重要度の高いニュースです。</span>' +
     '</div>' + items;
   pickupEl.hidden = false;
 }
@@ -656,6 +665,105 @@ function catName(catId) {
 }
 
 /* =========================================================
+   ■ 改善ロジック：情報源の質 / 近似重複まとめ / 重要度 / 日付グループ
+   ========================================================= */
+// 信頼できるジン・スピリッツ系の有力媒体（小文字で部分一致）。同じ日付なら上位に並べる。
+const REPUTABLE_SOURCES = [
+  "the spirits business", "spirits business", "drinks international", "the drinks business",
+  "difford", "gin magazine", "gin foundry", "master of malt", "decanter", "punch",
+  "thedrinksreport", "imbibe", "vinepair", "craft gin club", "forbes", "robb report",
+  "saketimes", "サケタイムズ", "dancyu", "voix", "ニュースイッチ", "酒販ニュース", "webマガジン",
+];
+function sourceTier(source) {
+  const s = (source || "").toLowerCase();
+  return REPUTABLE_SOURCES.some((r) => s.includes(r)) ? 0 : 1; // 0=有力媒体（上位）
+}
+
+// 重要度スコア（注目ピックアップ用）。受賞・新蒸留所・限定・世界一などを高く評価。
+function importanceScore(a) {
+  let s = 0;
+  const cat = a._cat || "";
+  if (cat === "award") s += 5;
+  if (cat === "newdistillery") s += 4;
+  if (cat === "event") s += 2;
+  const t = (a.title || "") + " " + (a.originalTitle || "");
+  if (/受賞|金賞|最高賞|グランプリ|世界一|日本一|world gin awards|gold|best in|trophy|winner/i.test(t)) s += 4;
+  if (/新蒸留所|蒸留所.*(オープン|開業|新設|始動)|opens|grand open/i.test(t)) s += 3;
+  if (/限定|数量限定|初の|世界初|国内初|first/i.test(t)) s += 2;
+  if (sourceTier(a.source) === 0) s += 1;
+  return s;
+}
+
+// タイトルを比較用トークンに（英語=3文字以上の単語、日本語=2文字ずつ）
+function tokenize(title) {
+  const t = String(title).toLowerCase()
+    .replace(/[「」『』【】（）()"'’‘“”!！?？・,，.。\-—–~〜:：;\s]+/g, " ").trim();
+  const tokens = new Set();
+  (t.match(/[a-z0-9]{3,}/g) || []).forEach((w) => tokens.add(w));
+  const jp = t.replace(/[a-z0-9 ]+/g, "");
+  for (let i = 0; i < jp.length - 1; i++) tokens.add(jp.substr(i, 2));
+  return tokens;
+}
+// 類似度（共有トークン数 / 少ない方のトークン数）
+function similarity(ta, tb) {
+  if (ta.size === 0 || tb.size === 0) return 0;
+  const small = ta.size < tb.size ? ta : tb;
+  const big = ta.size < tb.size ? tb : ta;
+  let common = 0;
+  small.forEach((x) => { if (big.has(x)) common++; });
+  return common / small.size;
+}
+// 近似重複をまとめる（同じ話題を別媒体が報じたもの→1件に集約し「＋他◯媒体」）
+function clusterArticles(list) {
+  const reps = [], repTokens = [];
+  list.forEach((a) => {
+    const tk = tokenize(a.title);
+    let merged = false;
+    for (let i = 0; i < reps.length; i++) {
+      if (similarity(tk, repTokens[i]) >= 0.6) {
+        reps[i]._also = reps[i]._also || [];
+        if (a.source && a.source !== reps[i].source && !reps[i]._also.includes(a.source)) {
+          reps[i]._also.push(a.source);
+        }
+        const better = sourceTier(a.source) < sourceTier(reps[i].source) ||
+          (sourceTier(a.source) === sourceTier(reps[i].source) && (a.date || "") > (reps[i].date || ""));
+        if (better) {
+          const also = reps[i]._also.slice();
+          if (reps[i].source && reps[i].source !== a.source && !also.includes(reps[i].source)) also.push(reps[i].source);
+          a._also = also.filter((s) => s !== a.source);
+          reps[i] = a; repTokens[i] = tk;
+        }
+        merged = true;
+        break;
+      }
+    }
+    if (!merged) { reps.push(a); repTokens.push(tk); }
+  });
+  return reps;
+}
+// 情報源の質で並べ替え（同じ日付内では有力媒体→新しい順）
+function sortByQuality(list) {
+  return list.slice().sort((x, y) => {
+    const dx = (x.date || "").slice(0, 10), dy = (y.date || "").slice(0, 10);
+    if (dx !== dy) return dy.localeCompare(dx);
+    const tx = sourceTier(x.source), ty = sourceTier(y.source);
+    if (tx !== ty) return tx - ty;
+    return (y.date || "").localeCompare(x.date || "");
+  });
+}
+// 日付グループ名（今日 / 今週 / それ以前）
+function dateBucket(iso) {
+  if (!iso) return "それ以前";
+  if (isNaN(new Date(iso))) return "それ以前";
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const d = new Date(iso); d.setHours(0, 0, 0, 0);
+  const days = Math.floor((today - d) / 86400000);
+  if (days <= 0) return "今日";
+  if (days <= 7) return "今週";
+  return "それ以前";
+}
+
+/* =========================================================
    ■ 画面に表示する
    ========================================================= */
 function showCategory(catId) {
@@ -673,27 +781,45 @@ function render(articles) {
   }
 
   const showCat = currentCategory === "all"; // 「すべて」表示の時だけカテゴリ名を出す
-  feedEl.innerHTML = articles.map((a) => {
-    const dateStr = a.date ? formatDate(a.date) : "";
-    const cat = a._cat || currentCategory;
-    return `
-      <a class="article" href="${escapeHtml(a.link)}" target="_blank" rel="noopener">
-        ${showCat ? `<span class="cat">${escapeHtml(catName(cat))}</span>` : ""}
-        <h3>${escapeHtml(a.title)}${isNewArticle(a) ? '<span class="new-badge">New</span>' : ""}</h3>
-        ${a.originalTitle ? `<div class="orig">原題: ${escapeHtml(a.originalTitle)}</div>` : ""}
-        <div class="meta">
-          <span class="meta-text"><span class="src">${escapeHtml(a.source || "ニュース")}</span>${dateStr ? " ・ " + dateStr : ""}</span>
-          <button class="share-btn" type="button" data-link="${escapeHtml(a.link)}" data-title="${escapeHtml(a.title)}" aria-label="この記事を共有">↗ 共有</button>
-        </div>
-      </a>`;
-  }).join("");
+  // 近似重複をまとめ、情報源の質で並べ替え
+  const list = sortByQuality(clusterArticles(articles));
+
+  if (showCat) {
+    // 「すべて」は 今日 / 今週 / それ以前 でグループ表示
+    let html = "", lastBucket = null;
+    list.forEach((a) => {
+      const b = dateBucket(a.date);
+      if (b !== lastBucket) { html += `<div class="date-group-head">${b}</div>`; lastBucket = b; }
+      html += articleCardHTML(a, true);
+    });
+    feedEl.innerHTML = html;
+  } else {
+    feedEl.innerHTML = list.map((a) => articleCardHTML(a, false)).join("");
+  }
 
   statusEl.textContent = "新しい順に表示中";
-  countNumEl.textContent = articles.length;
-  // 更新時刻は news.json の updated を表示
+  countNumEl.textContent = list.length;
   if (newsData && newsData.updated) {
     updatedAtEl.textContent = "更新 " + formatDate(newsData.updated);
   }
+}
+
+// 記事カード1枚のHTML（showCat=trueでカテゴリ名を表示）
+function articleCardHTML(a, showCat) {
+  const dateStr = a.date ? formatDate(a.date) : "";
+  const cat = a._cat || currentCategory;
+  const also = (a._also && a._also.length)
+    ? `<span class="also-note">＋他${a._also.length}媒体</span>` : "";
+  return `
+    <a class="article" href="${escapeHtml(a.link)}" target="_blank" rel="noopener">
+      ${showCat ? `<span class="cat">${escapeHtml(catName(cat))}</span>` : ""}
+      <h3>${escapeHtml(a.title)}${isNewArticle(a) ? '<span class="new-badge">New</span>' : ""}</h3>
+      ${a.originalTitle ? `<div class="orig">原題: ${escapeHtml(a.originalTitle)}</div>` : ""}
+      <div class="meta">
+        <span class="meta-text"><span class="src">${escapeHtml(a.source || "ニュース")}</span>${also}${dateStr ? " ・ " + dateStr : ""}</span>
+        <button class="share-btn" type="button" data-link="${escapeHtml(a.link)}" data-title="${escapeHtml(a.title)}" aria-label="この記事を共有">↗ 共有</button>
+      </div>
+    </a>`;
 }
 
 // 日付（ISO文字列）を見やすい形にする
@@ -723,7 +849,8 @@ const tabsEl = document.getElementById("tabs");
 CATEGORIES.forEach((cat, i) => {
   const btn = document.createElement("button");
   btn.className = "tab" + (i === 0 ? " active" : "");
-  btn.textContent = cat.name;
+  btn.dataset.cat = cat.id;
+  btn.innerHTML = escapeHtml(cat.name) + '<span class="tab-count" data-cat="' + cat.id + '"></span>';
   btn.onclick = () => {
     document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
     btn.classList.add("active");
@@ -731,6 +858,17 @@ CATEGORIES.forEach((cat, i) => {
   };
   tabsEl.appendChild(btn);
 });
+
+// 各タブに件数を表示（データ読み込み後に呼ぶ。近似重複まとめ後の件数）
+function updateTabCounts() {
+  if (!newsData) return;
+  CATEGORIES.forEach((cat) => {
+    const span = document.querySelector('.tab-count[data-cat="' + cat.id + '"]');
+    if (!span) return;
+    const n = clusterArticles(articlesFor(cat.id)).length;
+    span.textContent = n ? "(" + n + ")" : "";
+  });
+}
 
 // 「最新に更新」ボタン（news.jsonを取り直す）
 document.getElementById("reloadBtn").onclick = () => loadData();
