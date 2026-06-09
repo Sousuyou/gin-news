@@ -236,13 +236,19 @@ function clusterArticles(list) {
   return reps;
 }
 // 情報源の質で並べ替え（同じ日付内では有力媒体→新しい順）
+// ローカル(端末時刻)の日付キー YYYYMMDD。並べ替えと日付グループ見出しの基準を揃える。
+function localDayKey(iso) {
+  const d = new Date(iso);
+  if (isNaN(d)) return 0;
+  return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+}
 function sortByQuality(list) {
   return list.slice().sort((x, y) => {
-    const dx = (x.date || "").slice(0, 10), dy = (y.date || "").slice(0, 10);
-    if (dx !== dy) return dy.localeCompare(dx);
+    const dx = localDayKey(x.date), dy = localDayKey(y.date);
+    if (dx !== dy) return dy - dx;                       // 新しいローカル日付が上
     const tx = sourceTier(x.source), ty = sourceTier(y.source);
-    if (tx !== ty) return tx - ty;
-    return (y.date || "").localeCompare(x.date || "");
+    if (tx !== ty) return tx - ty;                       // 同日内は有力媒体が上
+    return (y.date || "").localeCompare(x.date || "");   // さらに新しい時刻が上
   });
 }
 // 日付グループ名（今日 / 今週 / それ以前）
