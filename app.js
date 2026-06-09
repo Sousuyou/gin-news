@@ -369,9 +369,9 @@ document.getElementById("reloadBtn").onclick = () => loadData();
 
 /* =========================================================
    ■ 記事ごとの共有ボタン
-   ボタンを押すと「タイトル＋改行＋URL」をクリップボードにコピーする。
-   タイトルは画面に表示しているもの＝海外記事は翻訳済みの日本語、
-   日本語記事はそのまま。貼り付ければLINE等にそのまま送れる。
+   スマホ等（共有メニュー対応端末）：OS標準の共有メニュー（LINE/X等）を開く。
+   PC等（非対応）：「タイトル＋改行＋URL」をクリップボードにコピー。
+   タイトルは画面に表示しているもの＝海外記事は翻訳済みの日本語、日本語記事はそのまま。
    feedは作り直されるので、親(feed)に1つだけ委譲リスナーを置く。
    ========================================================= */
 feedEl.addEventListener("click", async (e) => {
@@ -381,7 +381,14 @@ feedEl.addEventListener("click", async (e) => {
   e.stopPropagation();
   const link = btn.dataset.link || "";
   const title = btn.dataset.title || "";          // 表示中のタイトル（海外は翻訳済み）
-  const text = (title ? title + "\n" : "") + link; // タイトル＋改行＋URL
+  // ① スマホ等：OS標準の共有メニュー（タイトル＋URL）
+  if (navigator.share) {
+    try { await navigator.share({ title: title, text: title, url: link }); }
+    catch (err) { /* ユーザーがキャンセルした等は無視 */ }
+    return;
+  }
+  // ② PC等：タイトル＋改行＋URL をクリップボードにコピー
+  const text = (title ? title + "\n" : "") + link;
   const ok = await copyText(text);
   const original = btn.textContent;
   btn.textContent = ok ? "コピー✓" : "コピー失敗";
