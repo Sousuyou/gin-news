@@ -1,5 +1,5 @@
 {
- "updated": "2026-06-10T20:40:50.729768+00:00",
+ "updated": "2026-06-10T22:54:36.687855+00:00",
  "categories": {
   "overseas": [
    {
@@ -290,6 +290,13 @@
     "date": "2025-11-29T08:00:00+00:00"
    },
    {
+    "title": "エディンバラ・ジン蒸留所がスコットランド・ジン・アワードで優勝",
+    "originalTitle": "Edinburgh Gin distillery triumphs at the Scottish Gin Awards",
+    "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNNFpUOFlGcDhQSEEtMGp2c2FwMkFqa0xWUVhoYnl3djRzWkJCQ0JiZmM2b3hpUDJYMWJJWlFmSkRVV1dXa3N2Ul9NZFkxQmd5NlIxMmZ2UDJuQlR6ODNrN01neVgwNHBUVDNKZVplUV85SW5hY05ueklIMEs5WXNCbjc2SmF6emZyZWZlV1pLaThnQXQ4V0E?oc=5",
+    "source": "Scottish Licensed Trade News",
+    "date": "2025-11-05T08:00:00+00:00"
+   },
+   {
     "title": "オーストラリアのベストジン29選 – ハリデーテイスターのジェス・クレイフィールドがそれぞれレビュー",
     "originalTitle": "The 29 best Australian gins – each reviewed by Halliday taster Jess Clayfield",
     "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBJdlFSazRmanotS2JNR1dBTE00TzlMWE8tT2o1SFBKSGtmdGdRR1FURnZvOFUzQnFjQlVrYloyaVo4Y00xYTZiQWUtTUdneFNXeC1EOVM3dzBRRVppaXA1cERzQUNuTXRKX1ZCVEhtS2FaUQ?oc=5",
@@ -343,13 +350,6 @@
     "originalTitle": "32 made in India gins to add to your bar",
     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOemNBdVVWTHFmcGg0WDh1NnpWYUQxY25ZdUlwUzljRFhYcE93Z052VGNBWlNhWktUdTRuMEpqdWtoZUdhdGwtZ0RnLWRENWFvbkdtYTVhT2dIdzVuUnZTQ1J5ZkFaNTNiU042VE8yeFhfUEN2VXZwVlBEMWFwMkwxUGs0eHE4RU1LT0JJYnJXWDNXNGRvSUZnYQ?oc=5",
     "source": "Condé Nast Traveller India",
-    "date": "2025-06-13T07:00:00+00:00"
-   },
-   {
-    "title": "アルディのスコティッシュ ジンが名誉ある賞で世界最高に選ばれる",
-    "originalTitle": "Aldi's Scottish Gin named as best in the world at prestigious awards",
-    "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQcmlDWGZ2Q0JRaTEyaXF0b2ZXd0lVQUxNaUhMdGhiQTFOMk01MXZSNlBtOHVjaTFtaTVYX1EzRkpPbTM2eXN4aFdCa0FpNXNKa1BCLU11dEZXblduVzNCZnNyM0VHa3BXaWNvWDFVMGdPX2lkU1FlRDZqeGZNcldwTXNNZy1vRzhPaW9RSVl0TktKaEJQN3B0YVczdEVfNkZoNmc?oc=5",
-    "source": "The Herald",
     "date": "2025-06-13T07:00:00+00:00"
    },
    {
@@ -474,6 +474,13 @@
   ],
   "japan": [
    {
+    "title": "東邦銀が福島・川内のクラフトジン製造「Kokage」に新制度で融資 担保は技術やブランド力に基づく将来性",
+    "originalTitle": null,
+    "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5odHBpNWZDWmg5UGdjeTNzYmpHamFHdXk0VzJLMGJnaHlTLXZMT0hHVlpOSXdRQ3VoOTZQYTFfeGVnbi1YM3lHbTBEaXBPVlpxVWZNSWpuTExlcVlDZlEzXw?oc=5",
+    "source": "河北新報オンライン",
+    "date": "2026-06-10T20:00:00+00:00"
+   },
+   {
     "title": "世界最高峰の蒸留酒コンペで快挙 野沢温泉蒸留所のクラフトジン2銘柄が最高金賞「ダブルゴールド」を受賞",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1VaE0tRW1mZC1ta1p4YUN3dzlPX2VvOE9lRDcxaURKUkR4Yl94Rm5VdjlzWUU0M05DLUZYRk1hNnF0aHJyXzQzUFI4bVJjVjBuM3ZRSlZ0dzVtQkVVRG1ob0JESUxMd1N5eHc?oc=5",
@@ -507,13 +514,6 @@
     "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBPcGhDVXdlb2NaS0pSUVhsVEFXMXFjV2w5VEhUNnRFMkZNUjVxNW45NURQVGh4Nm53YWxkdXRwRjZBZHg4ZzBDbnNDTVpqckR4OHc1WmVPOF92WVRlYTZhYnl3WjAwNi1kaEEwVElR?oc=5",
     "source": "ウォーカープラス",
     "date": "2026-06-08T00:38:22+00:00"
-   },
-   {
-    "title": "新発売！八朔の鮮烈な美味しさがあふれる『クラフトジン瀬戸内 八朔(はっさく)』6/1 (月)より数量限定で登場【セトウチディスティラリー】：山陽新聞デジタル｜さんデジ",
-    "originalTitle": null,
-    "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9TMlpRRHFxNUFCTW16dFlVcHZGSWlQVjlXZTlRZW9NYmN1emxMT0htQ1Nibkd6ZGk5MVFCWlNPeHhqekRNU3RJM2JZMWNaZVRfY2NxbDBLQmtfMjBsXzNtY1NIZTZMbG8?oc=5",
-    "source": "山陽新聞",
-    "date": "2026-06-06T07:00:00+00:00"
    },
    {
     "title": "国立大学発ベンチャー蒸留所、「山椒ジン」でTWSC金賞受賞。徳川家ゆかりの“門外不出”わさびを極限抽出した「わさびジン」も同時解禁。",
