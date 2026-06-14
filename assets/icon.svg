@@ -1,11 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="ジン最新ニュース">
   <rect width="512" height="512" rx="96" fill="#15120f"/>
-  <rect x="112" y="120" width="288" height="272" rx="14" fill="#fbfaf6"/>
-  <rect x="144" y="156" width="224" height="34" rx="4" fill="#15120f"/>
-  <rect x="144" y="214" width="120" height="92" rx="4" fill="#8bb58f"/>
-  <rect x="280" y="214" width="88" height="14" rx="7" fill="#6f6d67"/>
-  <rect x="280" y="244" width="88" height="14" rx="7" fill="#6f6d67"/>
-  <rect x="280" y="274" width="64" height="14" rx="7" fill="#d8ad62"/>
-  <rect x="144" y="330" width="224" height="14" rx="7" fill="#6f6d67"/>
-  <rect x="144" y="356" width="180" height="14" rx="7" fill="#6f6d67"/>
+  <path d="M130 128 L382 128 L256 276 Z" fill="#d8ad62"/>
+  <rect x="246" y="274" width="20" height="92" fill="#d8ad62"/>
+  <rect x="186" y="364" width="140" height="22" rx="11" fill="#d8ad62"/>
+  <circle cx="256" cy="182" r="26" fill="#8bb58f"/>
+  <path d="M236 206 L322 132" stroke="#15120f" stroke-width="10" stroke-linecap="round"/>
 </svg>
