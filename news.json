@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-18T09:39:36.650871+00:00",
+ "updated": "2026-08-18T12:58:21.614414+00:00",
  "categories": {
   "overseas": [
    {
@@ -24,7 +24,7 @@
     "date": "2026-06-19T07:00:00+00:00"
    },
    {
-    "title": "別のヘンドリックスがバリに到着、ほぼ10年ぶりのブランドの大型追加",
+    "title": "別のヘンドリックスがバリ島に到着、ほぼ10年ぶりのブランドの大型追加",
     "originalTitle": "Another Hendrick’s Arrives in Bali, the Brand’s first Major Addition in Almost a Decade",
     "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQWWNsN2ZiZlRsUUVzaEZBcFItcXhqWld3bnNKNXRPX1Noa295cUVJY3Jfcld4SVVqcDN5d0FyOU0zOFB4LVRPRGNPaGhUbEUzcnJ5VmkySHlLcm12UTg5dkdqYUtEOURsZHVzVjBYd2hFZ0xVT3Ata3BrdG0tcE9OU0hnNUVwQQ?oc=5",
     "source": "epicure Magazine",
@@ -34,7 +34,7 @@
     "title": "ゴールデン ロード ジンがサンフランシスコで世界金賞を受賞",
     "originalTitle": "GOLDEN ROAD GIN AWARDED GLOBAL GOLD IN SAN FRANCISCO",
     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPYzgxcU5hVzc0akJJNzJNdnpnbUQxX3dwVFk2VndxdE8waF9EX1lkeVV3R1hkdWZ3XzhmMlBCYjdZTmZsYWJBY0NKNmlZNEdJV2RhMzk0d0RoYkZKOW1kYzg3RDJkNTdXTGRadDc3RW5RTXpkMy1UZzhuRGNQWkU3b1ZnWmcxRGJseEZmel9uQVZGaExLQVZCRE1pREtMcUZ1NXkxZWwyaWNaV0FmeEcyTENWdkdRZw?oc=5",
-    "source": "businesswales.gov.wales",
+    "source": "Business Wales",
     "date": "2026-06-09T07:00:00+00:00"
    },
    {
@@ -76,21 +76,21 @@
     "title": "KWVがワールドジンアワードで優勝",
     "originalTitle": "KWV triumphs at World Gin Awards",
     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOeEZqYnRzQUJDQnljTzVfbzBUU0dHTzluY1V1elVmdGs3OWI2YkQtRnYtWDRLNHFYdW9BNXdhcjdJZU50RHRQTV9KUzhJejVfSEtEUk1DSGxhVVB1NzJHNjhZSm13d3llU1NyVFBwUlNKZXBjNjk3bjNWaUUwVEpXbWdvNmR2OUk?oc=5",
-    "source": "IOL",
+    "source": "iol.co.za",
     "date": "2026-05-21T07:00:00+00:00"
    },
    {
     "title": "これらは（本当に）南アフリカ最高のジンですか？",
     "originalTitle": "Are these (really) South Africa’s best gins?",
     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPOUt0N1VzeVdnM2N4ZC1xMS01SlltR2pXME9yQlFiNndITXNKS2JPLXhtQWVNSGt3U3VoZWJjRVhYV1h4Z2xSbVJXaFh5U1RFTk5wUzliVVJzT0ptZ3IwM0VoalhkNDJvcDczUVpjUE5VUkpqSWpWZjRhSlZJTDN4dmJQaW92TG96MUlGM0ZR?oc=5",
-    "source": "Time Out Worldwide",
+    "source": "timeout.com",
     "date": "2026-05-20T07:00:00+00:00"
    },
    {
     "title": "ヘンドリックス、南アフリカに「アナザー」を導入：象徴的なジン ブランドの新たな表現",
     "originalTitle": "Hendrick’s introduces 'Another' in South Africa: A new expression of the iconic gin brand",
     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQd0s4aGk0ZGphVDJhcVdXYlc1Z0lzM2tJYmVzMWNoZ3ZVZUhVR3VfYmxTem9rOVVoRjFGR05RakgzeFZrN0VWQ2NlUlFScEFvNFhQRG1Wa1k0UzRhdHBNMURNQWVCMkh2d1h0NERpcTktNTEzYUFNektzWUl1Z0dtTHZYbXkyenR6OGNyQmFFaHc5a2dYTXFXSXRETG9WbDRWUWlVSGN3bm9XdjQ1X09OOExhMXp3WGxoWC0zRElCOTdIdFJaalFPbWZPN2EwS1Yw?oc=5",
-    "source": "IOL",
+    "source": "iol.co.za",
     "date": "2026-05-20T07:00:00+00:00"
    },
    {
@@ -129,7 +129,14 @@
     "date": "2026-05-10T07:00:00+00:00"
    },
    {
-    "title": "ロードアイランド・スピリッツとセーブ・ザ・ベイがナラガンセット湾の海岸線で採れた植物で作られた新しいジンを発売",
+    "title": "スパークリングソーシャルジンスプリッツ：ゴードンズスプリッツは2つのフレーバーを注ぐ準備ができています",
+    "originalTitle": "Sparkling Social Gin Spritzes: Gordon’s Spritz Comes Ready to Pour in Two Flavors",
+    "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5VVjhCUmFZdzc4T1pubVp1VUItQTFlcjdXMkxKTXpCT3AtaVp0N1hWR0tDWTI3ejd2SnJWdDc4azJZNGpldS1mUGZZT3hFb3NiSy02alUxeWtyRHVycHc?oc=5",
+    "source": "Trend Hunter",
+    "date": "2026-04-21T07:00:00+00:00"
+   },
+   {
+    "title": "ロードアイランド・スピリッツとセーブ・ザ・ベイが、ナラガンセット湾の海岸線で採れた植物で作られた新しいジンを発売",
     "originalTitle": "Rhode Island Spirits and Save The Bay launch new gin made with botanicals foraged from Narragansett Bay's shoreline",
     "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOUEluSVNCZXRXcF8wWmY2LUIzX1F3Y0pJQkpyTHBkVEhDNXhkeDNjdlRpTE5uZUdaX25zemNXdGZOTjZEQi0xOWRUMW1PdXJQbFdZdTllc1gtN1ZjeWJ1S1NNRUxFaVBJM2ZYM19NRGQwQzBJcWhtXzRKenEyWGZXRllubmwzcUZ4dG1DQnFqRWt1UFEzSDBEOTZIUDZ0SExXSHVNM2Jtam9oajVBMkJJVThxb3NycEVVWmhtc0RRMnhzYUZHTmZOalYyemhIQkNmR3Q0dkVMeTNQSVZKZHRmNw?oc=5",
     "source": "What's Up Newp",
@@ -160,7 +167,7 @@
     "title": "米国市場におけるジンについて数字が本当に語ること",
     "originalTitle": "What the Numbers Really Say About Gin in the U.S. Market",
     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPOVhYbjJLV1k4U0dLLUsxbVpfcjlnR2xrRWt6dmcyT2FaR0VVejU3Q1Rnc1FYejlwNGxPNzZPWVdjMTZDWXcyM3F0WUlmUWppU051Sno1NnpSemVyLVMyT0wtYTNqREN0THVXekQyM0hGUXA5S29scE9BanN1VFhDdEZDOGcyZURuLV83dlJR?oc=5",
-    "source": "go.sevenfifty.com",
+    "source": "daily.sevenfifty.com",
     "date": "2026-03-05T08:00:00+00:00"
    },
    {
@@ -311,13 +318,6 @@
     "date": "2025-10-03T07:00:00+00:00"
    },
    {
-    "title": "ジェームス・ジンが調味料ファン向けに風味豊かな表現をリリース",
-    "originalTitle": "James Gin is releasing a flavored expression for fans of condiments",
-    "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOSTJVbFJ1TUdUMlBBRE51aldVZC1pRkdXdWZoRjljemVYN2JWeU9RNENQQ0twM2QteEtYZUtjXzRGY21nQmUwTkpaSTFJOXhTR1dkbHBVbkRQUmxRUUM4RmZwZ2x6UXV3bWRaYThlUFp6VDNNMUNqdjhmUTBfYnBwSmw0V180RU9yQWFqUlZELXdybmlwYnNHc1g2ak94OUhROVpycEJVWXktb0loOGc?oc=5",
-    "source": "The Manual",
-    "date": "2025-09-29T07:00:00+00:00"
-   },
-   {
     "title": "この受賞歴のあるジンブランドがベリーを注入した新しい表現を発表しました",
     "originalTitle": "This Award-Winning Gin Brand Just Dropped a New Berry-Infused Expression",
     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQUWFVdG05Q1FMSW8yTlE3Ti0yU3c4MWFVdU9KVjhCYzg1RnhwbGs3alpTUG9tYkotNDNPRXJESW0xdUVOSHpFWmhkUHNPejVMRTg2MTU5VklHYmpja25nQm1yaUtTamxVamxILTlKV3ZMODlGTG5NNmU0TjVJOU85VmxSZUtUOEU?oc=5",
@@ -353,7 +353,7 @@
     "date": "2025-03-03T08:00:00+00:00"
    },
    {
-    "title": "サンフランシスコ・ワールド・スピリッツ・コンペティションによる「ジン・オブ・ザ・イヤー」",
+    "title": "サンフランシスコ・ワールド・スピリッツ・コンペティションによるジン・オブ・ザ・イヤー",
     "originalTitle": "The Gin Of The Year, According To The San Francisco World Spirits Competition",
     "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxORkphV0dVN2hRRDg4WXMyTzlyRHhST1NweUE5WC1YRVBmM0dHdlpLcUtNVUlrbnotUEVwUG9jMmdVdEVPQ3REaVdzRFVqY3JvUi1IVGMyZWk3RVAtcmdtZHhxYXRIeHV2MldWQ3pwWE5ZN0c4OFV5b01XZnBJc1RLVzhNMVdOLTAxYjgxVEVuRVpRVzBSVUxhQmdwbXg4cUt4Z2JyVnlxb1FGaUtZMFVtS1lSME9hcWhJdnBEQmZwcGVGR0Z3MUZycg?oc=5",
     "source": "Forbes",
@@ -363,14 +363,14 @@
     "title": "Catskills In A Bottle: 隔離防止ジンの超局所的表現",
     "originalTitle": "Catskills In A Bottle: The Hyperlocal Expressions of Isolation Proof Gin",
     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSmwwOTRzaW4wbHdEd3lIOW1Jd0VLZkhVRWx3d1llSlhaaWtsaHNST2VOX3NVMFJwRHhzNHFfQklDb0JKZDg3ZFNVVzNhVy1FSktnWFQ1Mi1SbUJFTUt0WnhaeklDcHBWYlhIclNYb3dka3BScWFZRnNhZHMzaU1xei1tbWVJQ19NcmZJLWdpUGhTdVdRT3J1cHFEQVZuSXA3VVZmWEJacl94MlhoOGdIb1BPbW0xYzVGMUdR?oc=5",
-    "source": "Chronogram Magazine",
+    "source": "chronogram.com",
     "date": "2024-12-13T08:00:00+00:00"
    },
    {
     "title": "私は自分でジンの作り方を学びました、そしてあなたもロングアイランドのこのクラスで作ることができます",
     "originalTitle": "I learned how to make my own gin, and you can too at this class on Long Island",
     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQ24wWHdHR0pzQ1c4TU0xZzBOOHZsa05uWE5nNTN5Rl9ISEZjdlpaYzkyTU1aRzVaNmxYU2lCd0hXY0JQbGVGemd4cnJDdXd0SjhqUFFkbDRuMTFzMUprX1U0YUlfVFVGblZUMFZXb0FXMUE2SkJjdjNZRVdmMldXSkQ5VEVleWZQUFJtaHR3cFhld1lUN3plS0RyZExRekJVbE1jVDcyZGV0dw?oc=5",
-    "source": "Time Out Worldwide",
+    "source": "timeout.com",
     "date": "2024-10-16T07:00:00+00:00"
    },
    {
@@ -461,7 +461,7 @@
     "title": "クラフト蒸留所のジンは「アメリカの物語」を讃える",
     "originalTitle": "Craft distillery’s gin honors the ‘American story’",
     "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBoa2NmaEFsSUZ5SFVPX29mWWZiMWpPM1pXZEpGb0VQSUF2aERUU3ZFQkhnblhZT3hRWnVMenJMNFQzWXdseXkyM2htVDkwVDJXSDU0SVVNckpuY0xoSUVyeGxiWmJaQk1QenZFTVhVUmQ4MEh0Zk83ZEdmVkM?oc=5",
-    "source": "The Temple News",
+    "source": "temple-news.com",
     "date": "2020-02-24T08:00:00+00:00"
    },
    {
@@ -476,23 +476,23 @@
    {
     "title": "お酒が好き。でも今日は飲まない。飲まない夜に、香りを味わう。「蒸留生チョコ」シリーズ誕生。第一弾テーマは #クラフトジン",
     "originalTitle": null,
-    "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1hd3JDTUFfV0FKYjlza0NWQUFtR09wNXItNUlOeWFLR0Q5Z3JrVHdQZXdGblpuc01tRDRWdVNnOEpLeURvbGVmR04xR0trbXMyeDdPWF83MWdCc0FMS0E5YlZaMm9MM3VhRWxLUVFFTW43TXJubDY0MDd3?oc=5",
-    "source": "イザ！",
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBDZDd5Q0QxclloWTd6RW5Kb080RVRHODhIcDhTSzU2U29FLXoyOGY1b3pqbVBNVXQxaHVnUDFtQ29hMkh2SjZGZUlyVmo2eFdwbE8xTTltT1dfVmhHYkQ5TG5YQVg4dkdvUGc?oc=5",
+    "source": "PR TIMES",
     "date": "2026-08-18T09:10:22+00:00"
-   },
-   {
-    "title": "前橋から世界へ。双子蒸留所のクラフトジン『KWELI』、8月ハワイ上陸を皮切りに海外輸出を本格化",
-    "originalTitle": null,
-    "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1rbXdGQnhOMXhfYmlXTS1RZERiYWtwVTZjaVJZMHd1WEw1eHlocVFUTzE4cUFOTnprM3RrNlRzZ1RjbXQ1RWVTSGcxSjZPTU5DdmxIeG9YQTFhRWhPMzdWVU9LamZQb3Y1QXZRMWFPNW9jMHdTZGc?oc=5",
-    "source": "Mantan Web",
-    "date": "2026-08-18T07:04:42+00:00"
    },
    {
     "title": "【画像】全種類制覇したい！『SiCX東京』でいただけるクラフトジン",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE41aHFDbTRnYlpFVVRacWlDMjBDWnpNd0lXOWg0QmZiYUtUeTJ6WHA4SFVqaFRDcmlIMmtNeXB5ZGgtSXgwbmd2ZVZ5bGRka1Y4MFNsbA?oc=5",
-    "source": "otonano-shumatsu.com",
+    "source": "おとなの週末Web",
     "date": "2026-08-18T04:32:45+00:00"
+   },
+   {
+    "title": "前橋から世界へ。双子蒸留所のクラフトジン『KWELI』、8月ハワイ上陸を皮切りに海外輸出を本格化",
+    "originalTitle": null,
+    "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE13VGF0cmJ1UVFTXzdpQjF6ZVpwaV9NS2VzTGlldl9tTWtVbkU2c1pZVGVnMW9ST2ZnZnlvSGt1NWUwZmptQ1R1MFhtV0cxdk5PUmlkTkNSaGpSU0NfOHhOVllKb3lHNXBlQ0E?oc=5",
+    "source": "PR TIMES",
+    "date": "2026-08-18T04:00:01+00:00"
    },
    {
     "title": "ノウが西武線沿線の廃棄素材で挑むクラフトジンと地域循環戦略",
@@ -631,7 +631,7 @@
     "title": "サントリージャパニーズクラフトジン 「ROKU〈六〉YUZU YUKIMI EDITION」 「ROKU〈六〉プレミアムジンソーダ」 数量限定新発売",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE96SEl0RUEwUmlVdGZpYmZ0WWJMX1cyeXhQbTZFSEFGWU5NTmo0cWgtRFRhYWlxbWdKd2UwOGZMR1p4RmhiR3F5SXdrdno5QXZWelhpa29PYjloUFVNbmdzYldOVUU?oc=5",
-    "source": "サントリーホールディングス",
+    "source": "suntory.co.jp",
     "date": "2026-08-03T07:00:00+00:00"
    },
    {
@@ -698,6 +698,13 @@
     "date": "2026-06-05T07:00:00+00:00"
    },
    {
+    "title": "オリジナルクラフトジン「SANKA」最高金賞を受賞（糸魚川商工会議所）",
+    "originalTitle": null,
+    "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE53eFVvbHY2WGczOEhDcFZvWmZHUHE2WW81RUhTUWdPcWJ5c05ZVjdNTVRzblllYXNuU1NIV3BzTTlwWVl5N0hOd3FfZ1ZSa2JYVGdIUXdMRERaMlpTT1pBcUFPZw?oc=5",
+    "source": "商工会議所",
+    "date": "2026-05-29T07:00:00+00:00"
+   },
+   {
     "title": "ジンの常識を覆す樽熟成に挑戦メイプル樽の甘さ広がる限定ボトル「BARREL-AGED GIN Small Batch Release 003」5/26発売",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5iVXRPejlvV0dSTUZyOWVPQ1dnYkxQWDczN2Q2N0tMS0RsSm9Kb2lYblFRcnJFejVJNEdfaEVXaTE3dk5UY0JsTl9EV2tlRXp1a0pEZDZJS2J0WXkyMGN5UkhZbzN0dWRLdEE?oc=5",
@@ -733,13 +740,6 @@
     "date": "2026-05-20T07:00:00+00:00"
    },
    {
-    "title": "糸魚川の杉から生まれたクラフトジン「SANKA」がアジア最大級の品評会で最高金賞を受賞",
-    "originalTitle": null,
-    "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTFBneDJub083YUttcERKa1dEZXRya1FZdEJyRmJnRXdjNmk0VFE4eFQ1cU5zUHdfQXcyYThhajFxd2RvOHpn?oc=5",
-    "source": "にいがた経済新聞",
-    "date": "2026-05-19T07:00:00+00:00"
-   },
-   {
     "title": "【金賞W受賞！】ジャパニーズウイスキー「林太郎 ミズナラカスク」とクラフト・ジン「因伯人（IMPACT）」がアジア最大級の酒類品評会『TWSC 2026』で金賞受賞",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9scUpQX2JUblJnNG90RE05Vmd6aFdIYl90VUZjQ2tZS1RDeU51YVhCRTc1Wm9nUjhSZllMZWdnNGctWUlRdUpfcDcxcE44NDI5MGFMVkhITThqT2RranVtMUVwcGtaMzNRbnc?oc=5",
@@ -750,7 +750,7 @@
     "title": "朝日酒造の「KUBOTA GIN」3商品、TWSC2026で金賞と銀賞を獲得 里山の自然を表現したジン",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiREFVX3lxTE8tTTg4UGgyWTJJbERhOUo3NmZGMVpxYW51V05jenBGdV9wZ0Q2ZjJtdm5VMTQyTUNqOUluYnlxV2lCX25K?oc=5",
-    "source": "にいがた経済新聞",
+    "source": "niikei.jp",
     "date": "2026-05-16T07:00:00+00:00"
    },
    {
@@ -813,7 +813,7 @@
     "title": "サントリージャパニーズクラフトジン 「ROKU〈六〉NORYO TEA EDITION」数量限定新発売",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBTcmNhWTQ5ZGcyMW15RHZDY2tZbUh5RldZMEE5ekI1aHJ2aEJtbXBYSTZ5YlpoQTBDUDFMMUxxeDFydmNoRkZHcEQtdEJpRG9tSmpfZWE1Y09DZm5rRldocTlZVkk?oc=5",
-    "source": "サントリーホールディングス",
+    "source": "suntory.co.jp",
     "date": "2026-03-31T07:00:00+00:00"
    },
    {
@@ -841,7 +841,7 @@
     "title": "野沢温泉蒸留所 ココデバー 白桃ジントニック の感想・クチコミ・商品情報",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9YdXhjY2ZESjFQZ2JjY1RZY1Foa0YxOENWZnpSZkFDSFVMSkwxVVFRN2xONGZKcXFvMUlnRm9yekxBRmFuZUFBZkN3?oc=5",
-    "source": "mognavi.jp",
+    "source": "もぐナビ",
     "date": "2026-03-23T08:46:33+00:00"
    },
    {
@@ -855,7 +855,7 @@
     "title": "サントリージャパニーズクラフトジン「ROKU〈六〉SAKURA BLOOM EDITION」数量限定新発売 | ニュースリリース",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9wQkx6amNqZjNpUnlFQ2tucEx5NEI1eENldms4ZENaR2dnX2FTTmVqR1pGeGx6dlhsSXIzZFRJSU4xZl9COHlNcndfcHhfakt6eG94OGJPRWd2ZnI4TVE?oc=5",
-    "source": "サントリーホールディングス",
+    "source": "suntory.co.jp",
     "date": "2025-12-16T08:00:00+00:00"
    },
    {
@@ -897,21 +897,21 @@
     "title": "サントリージャパニーズクラフトジン 「ROKU〈六〉 OSAKA BRILLIANCE EDITION」 「同 NORYO TEA EDITION」数量限定新発売",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5YVllmQUdpSHJKWmJtSUl2UHlNWm5tWlNETlpEVUV4d2xRRkIzd1l6NHRIQWozaTI4LTcxdUhLcUUxcGNnalJZcVNxQTYwbkZBNVVpSWpPaGMtUUQydnc?oc=5",
-    "source": "サントリーホールディングス",
+    "source": "suntory.co.jp",
     "date": "2025-02-18T08:00:00+00:00"
    },
    {
     "title": "2025年「サントリージン」戦略について",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE41QnBUVHRJMFlTdU1SUkk0d3FwUFhQNWlDWm5YQ0VOS3l3Sjg0dG9nNFBwVklyejUtQXlJWW1ZeVdjcVF6VjRrcUNVbmM2WmZ6X3NzY2JqRnBNZWdhM1E?oc=5",
-    "source": "サントリーホールディングス",
+    "source": "suntory.co.jp",
     "date": "2025-02-18T08:00:00+00:00"
    },
    {
     "title": "サントリージャパニーズクラフトジン 「ROKU〈六〉SAKURA BLOOM EDITION」数量限定新発売",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9CYXFfV1RXQXVZeFU5MUhGN3ZoNi1VeHhnQ202T254T3BQQU1OQVh2Ti1fNkdZaWtJbVBXdE50eEhyTTJLLTEzblBvVkVWVWEycWxjZjdWd0RxYUQ2dnc?oc=5",
-    "source": "サントリーホールディングス",
+    "source": "suntory.co.jp",
     "date": "2024-12-03T08:00:00+00:00"
    },
    {
@@ -973,7 +973,7 @@
     "date": "2026-06-03T07:00:00+00:00"
    },
    {
-    "title": "シックス・キャッツ蒸留所がスカーミッシュにオープンし、地元のジンとブランデーを提供",
+    "title": "シックス・キャッツ蒸留所がスコーミッシュにオープンし、地元のジンとブランデーを提供",
     "originalTitle": "Six Cats Distillery opens in Squamish bringing local gin and brandy",
     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOOWRldG9DVE4zQzl0TXVPdjBON2lLYzdoM2doRjJaczVUMW9YZklIRWVyeERGT2NGcHdCa18xNXpXa2dsc3BvX2JQOHliS2xkSXZBSGFIQkFoYjEyV3hzOHBNeS1SWktwUEhranFSUXExTTNENFRmWldoOWJZbVJxWE9qSGUwdFhXZ0M1Rng0a3lJSnBwLUQyUkxyWGRraUVxYkNMZHNoNWpGV1FtMF84Y2h3?oc=5",
     "source": "The Squamish Reporter",
@@ -997,7 +997,7 @@
     "title": "福島から｢世界一のジン｣を 川内村で蒸留所オープン【東日本大震災 15年後の福島を歩く】",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5aLWYxbXFXUjh4dk1haUVJQVp3aEN3ZU1wNUQtVDFScHlmVmgtZE5qamhHeG5GSk9wRXV1Ymp6d1VuNzZJNGpPUUo1Q1Zwdw?oc=5",
-    "source": "静岡新聞DIGITAL",
+    "source": "news.at-s.com",
     "date": "2026-03-07T08:00:00+00:00"
    },
    {
@@ -1025,7 +1025,7 @@
     "title": "公式オープンウイスキーとジンブランドが新しい蒸留所とビジターセンターを公開",
     "originalTitle": "Official Open whisky and gin brand unveils new distillery and visitor centre",
     "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQOVJ6ZkIxOGRnTlZzZjBBSTIzSFM3TEVoSXRDc2xCOTVjWG90Zjd6WGk4U1I2VnVJT0FhMHkxRTRVWFhUVWwxS1BCbUl3ZWE5by1Sa0dmbHpzUzlJWjZreUtoQ1dBbHJRY0diM3dmTmkzaWoyblFuUGhRVHVELWZaNk1JVjViMEc3V0hfVjNfRzdmSkNLWXQ0SkdwQnZzTXM2UWI4MlhsZS10aHpPdWhneUNMQzkwSmsxb1hkV0dNQ203c0twajgtdkwwQ3FrVVk?oc=5",
-    "source": "golfbusinessnews.com",
+    "source": "Golf Business News",
     "date": "2025-12-01T08:00:00+00:00"
    },
    {
@@ -1053,7 +1053,7 @@
     "title": "【金沢】地域に新たな“巡り”を生み出すサスティナブルジン。「MORI NO NIWA」オープン！",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBpWnlzTUdBRVZKTkk4TmRVMzVzWUhON3NNZ2pKYVQ1TEh0dm5objk4UWI0ZHF2SWZrZXQ3YlpKTHRtX1RwYnc?oc=5",
-    "source": "real local",
+    "source": "reallocal.jp",
     "date": "2025-11-11T08:00:00+00:00"
    },
    {
@@ -1087,11 +1087,11 @@
   ],
   "event": [
    {
-    "title": "画像5 / 13＞長谷川京子がクラフトジン「ROKU」のイベントに登場！そのおいしさと日本の四季を表現したアート空間を体験",
+    "title": "画像6 / 13＞長谷川京子がクラフトジン「ROKU」のイベントに登場！そのおいしさと日本の四季を表現したアート空間を体験",
     "originalTitle": null,
-    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5heFR6TUVObFFWd19TSGhxSjFsMWxZVzlHNG5VeDF0dkd3R3BWdHcyTHZlWDRVU0NwYUEwTldiZFBoYUo3Wm9IMzRKQWN2SWVnbDlWdnJZVFN4azVPZmRDeGw4dU5sbEhqRl9LbHln?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1FTkI5WklTQ1FTYzFlS3VjS2hZR0xkZ0tGUzl0UDdvNER2XzlPcFNSUjVHM0VFZUN4OGpMelluR0ptR3N4SGRhSUJicHdacWJTSzFYUS1YY0pNbWNOTnJVRGE4WEY1ajdjYnFRMC1n?oc=5",
     "source": "ウォーカープラス",
-    "date": "2026-08-17T11:32:14+00:00"
+    "date": "2026-08-17T11:52:46+00:00"
    },
    {
     "title": "画像6 / 7＞新CMや体験イベントで「ROKU〈六〉」と「翠（SUI）」の魅力発信！ジン市場の拡大を狙うサントリーの戦略とは",
@@ -1108,11 +1108,11 @@
     "date": "2026-08-14T06:59:29+00:00"
    },
    {
-    "title": "画像6 / 13＞長谷川京子がクラフトジン「ROKU」のイベントに登場！そのおいしさと日本の四季を表現したアート空間を体験",
+    "title": "画像5 / 13＞長谷川京子がクラフトジン「ROKU」のイベントに登場！そのおいしさと日本の四季を表現したアート空間を体験",
     "originalTitle": null,
-    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1FTkI5WklTQ1FTYzFlS3VjS2hZR0xkZ0tGUzl0UDdvNER2XzlPcFNSUjVHM0VFZUN4OGpMelluR0ptR3N4SGRhSUJicHdacWJTSzFYUS1YY0pNbWNOTnJVRGE4WEY1ajdjYnFRMC1n?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5heFR6TUVObFFWd19TSGhxSjFsMWxZVzlHNG5VeDF0dkd3R3BWdHcyTHZlWDRVU0NwYUEwTldiZFBoYUo3Wm9IMzRKQWN2SWVnbDlWdnJZVFN4azVPZmRDeGw4dU5sbEhqRl9LbHln?oc=5",
     "source": "ウォーカープラス",
-    "date": "2026-08-13T01:14:42+00:00"
+    "date": "2026-08-09T14:02:32+00:00"
    },
    {
     "title": "Suntory Launches Limited-Edition ROKU Yuzu Yukimi Gin and ROKU Premium Gin Soda Cans",
@@ -1188,7 +1188,7 @@
     "title": "ベン・ローモンドが第154回全英オープンに向けて特別版のジンをリリース",
     "originalTitle": "Ben Lomond releases special edition gin for The 154th Open",
     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOdUk5cGJkUGtxOGhuanR3R3dJTzZxZlp1dkV2bmhMZGQxUzNJOWlyOHh0ZFJsUldhODVnc0EtenJHMEVVZGJhTmtqUE5jUHAwd1I2dm51cVRQclNHZUVKYVZWZU5wTk0wZU9zMnowNXJuMWROSlJPb0Nrc0NUaHl0V0lZWHpHWnZUQ1Qyb1BxRDVKWmEtRWoxejBZMVB6cjUyTFQ1YlZ4eExSZw?oc=5",
-    "source": "golfbusinessnews.com",
+    "source": "Golf Business News",
     "date": "2026-06-09T07:00:00+00:00"
    },
    {
@@ -1300,7 +1300,7 @@
     "title": "宇陀 × クラフトジン文化の基盤づくり 宇陀に関わる人たちが交差する食体験イベント「スパイスとジン、宇陀す。」vol.2 開催",
     "originalTitle": null,
     "link": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE1USTloQ3BFdjhuU2dJWVJESzRINEJtWF9YejhGcEhhTFBqSVNFMnBLR3FBR3hPeUUyQTktbUNtQnFLMGNDaTRr?oc=5",
-    "source": "newscast.jp",
+    "source": "Newscast.jp",
     "date": "2026-03-04T08:00:00+00:00"
    },
    {
